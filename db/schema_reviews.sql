@@ -1,16 +1,7 @@
--- Create table to hold raw imported data --
-
-LOGIN: psql -d reviews -U tony -W
-
-sudo docker run -p 5434:80 \
-   -e 'PGADMIN_DEFAULT_EMAIL=user@domain.com' \
-   -e 'PGADMIN_DEFAULT_PASSWORD=student' \
-   -d dpage/pgadmin4
-
 DROP TABLE IF EXISTS reviews;
 
 CREATE TABLE reviews (
-  id              INTEGER primary key,
+  id              INTEGER NOT NULL primary key,
   product_id      INTEGER,
   rating          VARCHAR(255),
   date            VARCHAR(255),
@@ -25,6 +16,4 @@ CREATE TABLE reviews (
 );
 
 -- Import data --
-COPY reviews
-FROM '/home/tony/Nextcloud/HR-SEA16/sdc/tobrega-reviews/db/reviewsCleaned.csv'
-WITH (format csv, header)
+COPY reviews FROM '/home/tony/Nextcloud/HR-SEA16/sdc/tobrega-reviews/db/reviewsCleaned.csv' WITH (format csv, header)
