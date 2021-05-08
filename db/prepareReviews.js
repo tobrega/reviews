@@ -43,7 +43,7 @@ readableStream
       newRow.rating = 0;
     }
 
-    // unify dates to timestamps
+    // unify dates to unix timestamps
     if (newRow.date.length > 15) {
       newRow.date = Date.parse(newRow.date)
     }
