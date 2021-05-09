@@ -48,12 +48,16 @@ Contacts:
 ### Common Commands
 
 Spin up PostgreSQL in a Docker container:
-`sudo docker run --name postgresql-container -p 5432:5432 -e POSTGRES_PASSWORD=student -d postgres`
+```
+sudo docker run --name postgresql-container -p 5432:5432 -e POSTGRES_PASSWORD=student -d postgres
+```
 
 ### PostgreSQL Commands
 
 Enter PSQL Terminal
-`psql -d reviews -U tony -W`
+```
+psql -d reviews -U tony -W
+```
 
 Query
 ```sql
@@ -92,4 +96,4 @@ Notes
 
 ##### Database Data Modeling (1st iteration)
 
-![](/images/2021-05-08-22-18-54.png)
+![](images/2021-05-08-22-22-00.png)
