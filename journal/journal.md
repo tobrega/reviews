@@ -24,7 +24,8 @@
 * [Git Feature Branch Workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) (Atlassian)
 * [Recommended Technologies](https://learn-2.galvanize.com/cohorts/2596/blocks/94/content_files/Front%20End%20Capstone/exercises/tech_choices.md)
 * [Example Trello Project](https://trello.com/b/FcySKoaf/example-trello-project) (Julian Yuen)
-* [Markdown reference](https://commonmark.org/) ([README](https://learn-2.galvanize.com/cohorts/2596/blocks/101/content_files/System%20Design%20Capstone/exercises/writing_readmes.md))
+* [Markdown Reference](https://commonmark.org/) (CommonMark) ([README](https://learn-2.galvanize.com/cohorts/2596/blocks/101/content_files/System%20Design%20Capstone/exercises/writing_readmes.md))
+* [Markdown Tables Generator](https://tableconvert.com/) (TableConvert)
 * [Guide to Javascript Date and moment.js](https://www.freecodecamp.org/news/the-ultimate-guide-to-javascript-date-and-moment-js/)
 * [Gabe Acevedo IMDB](https://www.imdb.com/name/nm3629799/) (!!)
 * [Fireship: Async Await](https://youtu.be/vn3tm0quoqE) (Brenton)
@@ -361,6 +362,7 @@ Last row, `id`:  `3347679`
 
 
 Using `EXPLAIN ANALYZE` to show query statistics:
+
 ![](images/2021-05-08-23-08-18.png)
 
 ![](images/2021-05-08-23-08-40.png)
