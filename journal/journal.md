@@ -14,10 +14,10 @@
   * [Phase 5: Scale the Application](https://learn-2.galvanize.com/cohorts/2596/blocks/101/content_files/System%20Design%20Capstone/phases/phase_5.md)
   * [Phase 6: Presentations](https://learn-2.galvanize.com/cohorts/2596/blocks/101/content_files/System%20Design%20Capstone/phases/phase_6.md)
 
-* [Github]()
-* [Google Drive]()
-* [Trello Template Board]()
-* [Miro Board]()
+* [Github](https://github.com/TOBREGA)
+* [Google Drive](https://drive.google.com/drive/folders/1jpWqFmw1oKkMOHSlKW58yRasG5LYd27_)
+* [Trello Template Board](https://miro.com/app/board/o9J_lGGB1GE=/)
+* [Miro Board](https://miro.com/app/board/o9J_lGGB1GE=/)
 
 ### General Links
 * [Code Reviews Checklist](https://learn-2.galvanize.com/cohorts/2596/blocks/94/content_files/Front%20End%20Capstone/exercises/code_reviews.md)
