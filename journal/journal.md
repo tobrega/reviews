@@ -351,14 +351,26 @@ Last row, `id`:  `3347679`
 ## 5/8/2021
 
 `EXPLAIN ANALYZE`
+* displays the execution plan and actual run time statistics, including:
+  * planning time (in ms)
+  * execution time (in ms)
+  * total number of rows it actually returned
+* notes
+  * the current implementation of `EXPLAIN ANALYZE` can add profiling overhead to query execution
+  * this overhead can add some time to the actual query time
 
+
+Using `EXPLAIN ANALYZE` to show query statistics:
 ![](images/2021-05-08-23-08-18.png)
 
 ![](images/2021-05-08-23-08-40.png)
 
 To show a certain range of rows:
-
+```sql
+SELECT * FROM photos LIMIT 10 OFFSET 90;
+```
 ![](images/2021-05-08-23-09-05.png)
+
 
 Date Breakdown (Brenton):
 
@@ -367,7 +379,7 @@ let longDate = 'Wed Sep 02 2020 21:14:32 GMT-0700 (Pacific Daylight Time)';
 let isoDate = '2021-04-03T10:33:45.476Z'
 let unixTime = 1597117493485;
 let times = [longDate, isoDate, unixTime].map((date) => {
- return new Date(date).toISOString();
+  return new Date(date).toISOString();
 });
 console.log(JSON.stringify(times, null, 2));
 
@@ -378,3 +390,6 @@ console.log(JSON.stringify(times, null, 2));
 //   "2020-08-11T03:44:53.485Z"
 // ]
 ```
+
+---
+
