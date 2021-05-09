@@ -393,5 +393,12 @@ console.log(JSON.stringify(times, null, 2));
 // ]
 ```
 
+* Issue:
+  * Observing an issue where a row is inserted into an unexpected location
+  * Even though the data is not in this order in the data source
+
+    ![postgres](images/2021-05-08-23-49-43.png) ![sublimetext](images/2021-05-08-23-52-32.png)
+
+
 ---
 
