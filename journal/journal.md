@@ -43,3 +43,53 @@ Contacts:
 * [PostgreSQL Cheatsheet](https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546) #1
 * [PostgreSQL Cheatsheet](https://www.postgresqltutorial.com/postgresql-cheat-sheet/) #2
 
+---
+
+### Common Commands
+
+Spin up PostgreSQL in a Docker container:
+`sudo docker run --name postgresql-container -p 5432:5432 -e POSTGRES_PASSWORD=student -d postgres`
+
+### PostgreSQL Commands
+
+Enter PSQL Terminal
+`psql -d reviews -U tony -W`
+
+Query
+```sql
+SELECT * FROM reviews;
+```
+
+### Setup
+
+[pgAdmin4](https://www.pgadmin.org/download/pgadmin-4-apt)
+
+---
+
+### 5/3/2021  (SDC Start)
+Notes
+* Phase 1:  Create the Database
+  * Select two DBMS technologies (one RDBMS, one NoSQL DBMS)
+  * Example:  [Amazon System Design Interview: Design Parking Garage](https://www.youtube.com/watch?v=NtMvNh0WFVM&ab_channel=Exponent)
+* [Reviews Module API Information](https://learn-2.galvanize.com/cohorts/2596/blocks/94/content_files/Front%20End%20Capstone/project-atelier-catwalk/reviews.md)
+* Best Practices
+  * Strategies
+    * We can write everything in Javascript, OR
+    * We can have the database do heavy lifting for us
+  * Josh recommends Postgres
+    * npm packages for Postgres are not broken like MySQL
+  * Do not use an ORM
+    * slows things down
+    * main reason: because we should practice SQL to learn it better
+* Terms
+  * “Web-Scale”
+  * “Speed is a feature” -- Google
+  * Database Normalization ([guru99](https://www.guru99.com/database-normalization.html))
+    * generally want to normalize to 3NF
+    * there’s generally a downside to normalization
+  * Database Denormalization
+    * trade-off, allow for more space complexity, to achieve more performant queries
+
+##### Database Data Modeling (1st iteration)
+
+![](/images/2021-05-08-22-18-54.png)
