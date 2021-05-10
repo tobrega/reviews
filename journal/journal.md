@@ -466,3 +466,4 @@ Querying `reviews` table, fetching first 10 rows only:
 
   ![](images/2021-05-10-12-18-47.png)
 
+test
