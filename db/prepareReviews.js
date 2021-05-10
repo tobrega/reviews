@@ -3,8 +3,8 @@ const parse = require('csv-parser');
 const csv = require('fast-csv');
 const path = require('path');
 
-const originFilePath = path.join(__dirname, './reviews.csv');
-const destinationFilePath = path.join(__dirname, './reviewsCleaned.csv');
+const originFilePath = path.join(__dirname, './source/reviews.csv');
+const destinationFilePath = path.join(__dirname, './clean/reviewsCleaned.csv');
 const readableStream = fs.createReadStream(originFilePath);
 const writableStream = fs.createWriteStream(destinationFilePath, { flags: 'a' });
 
@@ -20,7 +20,7 @@ readableStream
   .pipe(parse())
   .on('data', (row) => {
     rowCount += 1;
-    if (rowCount % 100000 === 0) { console.log(rowCount); }
+    if (rowCount % 100000 === 0) { console.log(rowCount, 'rows processed'); }
 
     const newRow = { ...row };
 
@@ -43,10 +43,10 @@ readableStream
       newRow.rating = 0;
     }
 
-    // unify dates to unix timestamps
-    if (newRow.date.length > 15) {
-      newRow.date = Date.parse(newRow.date)
-    }
+    // unify dates to ISO date-strings
+    const numDate = Number(newRow.date);
+    const unixDate = numDate ? numDate : newRow.date;
+    newRow.date = new Date(unixDate).toISOString();
 
     csvStream.write(newRow);
     })
@@ -54,8 +54,6 @@ readableStream
     csvStream.end();
     console.log(`CSV file successfully processed in ${(Date.now() - startTime) / 1000} seconds`);
   });
-
-// sudo docker run --name postgresql-container -p 5432:5432 -e POSTGRES_PASSWORD=student -d postgres
 
 
 // const fs = require('fs');
