@@ -66,6 +66,11 @@ Query
 SELECT * FROM reviews;
 ```
 
+Clear the screen
+```
+\! clear
+```
+
 ### Setup
 
 [pgAdmin4](https://www.pgadmin.org/download/pgadmin-4-apt)
@@ -409,7 +414,7 @@ console.log(JSON.stringify(times, null, 2));
 ### Notes
 - AM standup
 
-Changed how `prepareReviews.js` handles dates
+### Changed how `prepareReviews.js` handles dates
 - In the source data file, we start off with three different date formats
   - unix timestamp
   - ISO date-string
@@ -421,17 +426,20 @@ Changed how `prepareReviews.js` handles dates
 - If the date is a number, it will construct a new date
 - Otherwise, it will return the original full date
 - Now, all dates will be in either
-  1. ISO date-string
+  1. ISO date-string ([MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toISOString))
   2. full date-string
 - Once the dates are in these formats with the date constructor, I convert it to ISO string format, which is the [recommended format that PostgreSQL accepts](https://www.postgresql.org/docs/9.1/datatype-datetime.html)
 - Reference: [The Ultimate Guide to PostgreSQL Date By Examples](https://www.postgresqltutorial.com/postgresql-date/#:~:text=Introduction%20to%20the%20PostgreSQL%20DATE%20data%20type&text=The%20lowest%20and%20highest%20values,%2C%202000%2D12%2D31.) (PostgreSQL Tutorial)
 
-Running `prepareReviews.js`:
+### Running `prepareReviews.js`:
 ```
 5700000 rows processed
 CSV file successfully processed in 112.221 seconds
 ```
-Import schema
+
+
+### Import schema
+
 ```
 reviews=# \i /home/tony/Nextcloud/HR-SEA16/sdc/tobrega-reviews/db/schema.sql
 DROP TABLE
@@ -450,18 +458,37 @@ COPY 2735823
 reviews=#
 ```
 
-Querying the database shows that our data imported successfully:
+#### Querying the database shows that our data imported successfully:
 
 ![](images/2021-05-10-12-31-21.png)
 
 
-Querying entire `reviews` table:
+#### Querying entire `reviews` table:
 * executes within 2323 ms
 
   ![](images/2021-05-10-12-19-11.png)
 
 
-Querying `reviews` table, fetching first 10 rows only:
+#### Querying `reviews` table, fetching first 10 rows only:
 * executes within 0.279 ms
 
   ![](images/2021-05-10-12-18-47.png)
+
+
+#### Clear the screen in psql
+* The `psql` interactive terminal doesn't have a command to clear the screen
+* However, we can issue a shell command using `\! [SHELL_COMMAND_HERE]`
+* Source: [Today I Learned](https://til.hashrocket.com/posts/da9ade5291-clear-the-screen-in-psql)
+```
+\! clear
+```
+
+
+#### Querying `photos` still exhibits strange row insertions:
+
+![](images/2021-05-10-15-11-03.png)
+
+![](images/2021-05-10-15-13-13.png)
+
+![](images/2021-05-10-15-13-30.png)
+
