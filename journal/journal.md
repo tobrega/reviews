@@ -31,6 +31,7 @@
 * [Gabe Acevedo IMDB](https://www.imdb.com/name/nm3629799/) (!!)
 * [Fireship: Async Await](https://youtu.be/vn3tm0quoqE) (Brenton)
 * [The Net Ninja](https://www.youtube.com/c/TheNetNinja/search?query=stream) (Gabe)
+* [Awesome README](https://github.com/matiassingers/awesome-readme)
 
 ### Referenced Links
 * [Using COPY in Postgres for Importing Large CSVs](https://www.trineo.com/blog/2018/08/using-copy-in-postgres-for-importing-large-csvs) (Brenton)
