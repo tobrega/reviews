@@ -452,29 +452,14 @@ reviews=#
 
 Querying the database shows that our data imported successfully:
 
-![](images/2021-05-10-12-03-58.png)
+![](images/2021-05-10-12-31-21.png)
 
-Date output:
-
-id  | product_id | rating |    date    |
-----|------------|--------|------------|
-  1 |          1 | 5      | 2020-07-30 |
-  2 |          1 | 4      | 2021-01-09 |
-  3 |          2 | 4      | 2020-12-30 |
-  4 |          2 | 4      | 2020-07-01 |
-  5 |          2 | 3      | 2021-03-17 |
-
-
-Running several queries rapidly in succession:
-```sql
-SELECT * FROM reviews FETCH FIRST 10 ROWS ONLY;
-```
-![](images/2021-05-10-12-16-53.png)
 
 Querying entire `reviews` table:
 * executes within 2323 ms
 
   ![](images/2021-05-10-12-19-11.png)
+
 
 Querying `reviews` table, fetching first 10 rows only:
 * executes within 0.279 ms
