@@ -72,7 +72,7 @@ SELECT * FROM reviews;
 
 ---
 
-## 5/3/2021  (SDC Start)
+## 5/3/2021  (W8D1, SDC Start)
 Notes
 * Phase 1:  Create the Database
   * Select two DBMS technologies (one RDBMS, one NoSQL DBMS)
@@ -112,7 +112,7 @@ Data Model for Product Q&A (Gabe)
 
 ---
 
-## 5/4/2021, May the 4th Be With You
+## 5/4/2021  (W8D2; May the 4th Be With You)
 
 Notes
 * Adjustments to our data models
@@ -157,7 +157,7 @@ Data Model for Product Q&A (Gabe)
 
 ---
 
-## 5/5/2021
+## 5/5/2021  (W8D3)
 
 Notes
 * importing csv data into postgres
@@ -220,7 +220,7 @@ Aborted (core dumped)
 
 ---
 
-## 5/6/2021
+## 5/6/2021  (W8D4)
 
 #### Lecture:  [Performance Testing Your Service](https://docs.google.com/presentation/d/e/2PACX-1vQ1n8x8MWz5So5J3PqTptxxG2ZTYTGuUmzbTzsKZSnL-nYBYEVQNHmuBspjX_CBZobvgHRQ0n5ExCkR/embed?start=false&loop=false&delayms=3000&slide=id.g2a3378dcb8_0_0)
 * **If we have queries executing <50 ms, we set ourselves up for success down the road**
@@ -312,7 +312,7 @@ Notes
 ---
 
 
-## 5/7/2021
+## 5/7/2021  (W8D5)
 
 Notes
 * K6 is one of the best local stress testing tools available
@@ -350,7 +350,7 @@ Last row, `id`:  `3347679`
 
 ---
 
-## 5/8/2021
+## 5/8/2021  (W8D6)
 
 `EXPLAIN ANALYZE`
 * displays the execution plan and actual run time statistics, including:
@@ -403,3 +403,72 @@ console.log(JSON.stringify(times, null, 2));
 
 ---
 
+
+## 5/10/2021  (W9D1)
+
+### Notes
+- AM standup
+
+Changed how `prepareReviews.js` handles dates
+- In the source data file, we start off with three different date formats
+  - unix timestamp
+  - ISO date-string
+  - full date-string
+- Logic changed
+  1. attempt conversion of date to number (signifying a unix timestamp), then
+  2. use the `new Date()` constructor on the number, and then
+  3. convert date to ISO string by chaining `.toISOString()` to the date constructor
+- If the date is a number, it will construct a new date
+- Otherwise, it will return the original full date
+- Now, all dates will be in either
+  1. ISO date-string
+  2. full date-string
+- Once the dates are in these formats with the date constructor, I convert it to ISO string format, which is the [recommended format that PostgreSQL accepts](https://www.postgresql.org/docs/9.1/datatype-datetime.html)
+- Reference: [The Ultimate Guide to PostgreSQL Date By Examples](https://www.postgresqltutorial.com/postgresql-date/#:~:text=Introduction%20to%20the%20PostgreSQL%20DATE%20data%20type&text=The%20lowest%20and%20highest%20values,%2C%202000%2D12%2D31.) (PostgreSQL Tutorial)
+
+Running `prepareReviews.js`:
+```
+5700000 rows processed
+CSV file successfully processed in 112.221 seconds
+```
+Import schema
+```
+reviews=# \i /home/tony/Nextcloud/HR-SEA16/sdc/tobrega-reviews/db/schema.sql
+DROP TABLE
+psql:/home/tony/Nextcloud/HR-SEA16/sdc/tobrega-reviews/db/schema.sql:3: NOTICE:  table "reviews" does not exist, skipping
+DROP TABLE
+psql:/home/tony/Nextcloud/HR-SEA16/sdc/tobrega-reviews/db/schema.sql:4: NOTICE:  table "characteristics" does not exist, skipping
+DROP TABLE
+psql:/home/tony/Nextcloud/HR-SEA16/sdc/tobrega-reviews/db/schema.sql:5: NOTICE:  table "photos" does not exist, skipping
+DROP TABLE
+CREATE TABLE
+CREATE TABLE
+CREATE TABLE
+COPY 5760707
+COPY 3339442
+COPY 2735823
+reviews=#
+```
+
+Querying the database shows that our data imported successfully:
+![](images/2021-05-10-12-03-58.png)
+
+Date output:
+
+id  | product_id | rating |    date    |
+----|------------|--------|------------|
+  1 |          1 | 5      | 2020-07-30 |
+  2 |          1 | 4      | 2021-01-09 |
+  3 |          2 | 4      | 2020-12-30 |
+  4 |          2 | 4      | 2020-07-01 |
+  5 |          2 | 3      | 2021-03-17 |
+
+Full output:
+
+id | product_id | rating |    date    |              summary              |                                                                    body                                                                     | recommend | reported |   reviewer_name    |    reviewer_email    |                            response                            | helpfulness
+----|------------|--------|------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|-----------|----------|--------------------|----------------------|----------------------------------------------------------------|-------------
+  1 |          1 | 5      | 2020-07-30 | This product was great!           | I really did or did not like this product based on whether it was sustainably sourced.  Then I found out that its made from nothing at all. | t         | f        | funtime            | first.last@gmail.com | null                                                           |           8
+  2 |          1 | 4      | 2021-01-09 | This product was ok!              | I really did not like this product solely because I am tiny and do not fit into it.                                                         | f         | f        | mymainstreammother | first.last@gmail.com | null                                                           |           2
+  3 |          2 | 4      | 2020-12-30 | I am liking these glasses         | They are very dark.  But that's good because I'm in very sunny spots                                                                        | t         | f        | bigbrotherbenjamin | first.last@gmail.com | Glad you're enjoying the product!                              |           5
+  4 |          2 | 4      | 2020-07-01 | They look good on me              | I so stylish and just my aesthetic.                                                                                                         | t         | f        | fashionperson      | first.last@gmail.com | null                                                           |           1
+  5 |          2 | 3      | 2021-03-17 | I'm enjoying wearing these shades | Comfortable and practical.                                                                                                                  | t         | f        | shortandsweeet     | first.last@gmail.com | null                                                           |           5
