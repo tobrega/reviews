@@ -465,5 +465,3 @@ Querying `reviews` table, fetching first 10 rows only:
 * executes within 0.279 ms
 
   ![](images/2021-05-10-12-18-47.png)
-
-test
