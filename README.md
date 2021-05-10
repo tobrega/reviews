@@ -1,4 +1,31 @@
-# ToBreGa Reviews API
+# Tobrega Reviews API
+
+Tobrega Reviews API is the Reviews API service for FEC Project Catwalk.
+
+## Installation
+
+Use the package manager `npm` to install Tobrega Reviews API.
+
+```
+npm install
+```
+
+## Usage
+```
+npm start
+```
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## License
+
+[MIT License](https://github.com/tobrega/tobrega-reviews/blob/main/LICENSE)
+
+---
 
 ### System Design Capstone Overview
 To build out API to support our FEC application. Our goal is to replace an existing API with a back end system that can support the full data set for the project and to scale to meet the demands of production traffic.
