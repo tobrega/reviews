@@ -451,6 +451,7 @@ reviews=#
 ```
 
 Querying the database shows that our data imported successfully:
+
 ![](images/2021-05-10-12-03-58.png)
 
 Date output:
@@ -463,12 +464,20 @@ id  | product_id | rating |    date    |
   4 |          2 | 4      | 2020-07-01 |
   5 |          2 | 3      | 2021-03-17 |
 
-Full output:
 
-id | product_id | rating |    date    |              summary              |                                                                    body                                                                     | recommend | reported |   reviewer_name    |    reviewer_email    |                            response                            | helpfulness
-----|------------|--------|------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|-----------|----------|--------------------|----------------------|----------------------------------------------------------------|-------------
-  1 |          1 | 5      | 2020-07-30 | This product was great!           | I really did or did not like this product based on whether it was sustainably sourced.  Then I found out that its made from nothing at all. | t         | f        | funtime            | first.last@gmail.com | null                                                           |           8
-  2 |          1 | 4      | 2021-01-09 | This product was ok!              | I really did not like this product solely because I am tiny and do not fit into it.                                                         | f         | f        | mymainstreammother | first.last@gmail.com | null                                                           |           2
-  3 |          2 | 4      | 2020-12-30 | I am liking these glasses         | They are very dark.  But that's good because I'm in very sunny spots                                                                        | t         | f        | bigbrotherbenjamin | first.last@gmail.com | Glad you're enjoying the product!                              |           5
-  4 |          2 | 4      | 2020-07-01 | They look good on me              | I so stylish and just my aesthetic.                                                                                                         | t         | f        | fashionperson      | first.last@gmail.com | null                                                           |           1
-  5 |          2 | 3      | 2021-03-17 | I'm enjoying wearing these shades | Comfortable and practical.                                                                                                                  | t         | f        | shortandsweeet     | first.last@gmail.com | null                                                           |           5
+Running several queries rapidly in succession:
+```sql
+SELECT * FROM reviews FETCH FIRST 10 ROWS ONLY;
+```
+![](images/2021-05-10-12-16-53.png)
+
+Querying entire `reviews` table:
+* executes within 2323 ms
+
+  ![](images/2021-05-10-12-19-11.png)
+
+Querying `reviews` table, fetching first 10 rows only:
+* executes within 0.279 ms
+
+  ![](images/2021-05-10-12-18-47.png)
+
