@@ -46,6 +46,7 @@
 * [PostgreSQL Cheatsheet](https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546) #1
 * [PostgreSQL Cheatsheet](https://www.postgresqltutorial.com/postgresql-cheat-sheet/) #2
 * [Express with async/await](https://node-postgres.com/guides/async-express) (Brenton)
+* [`csv-parser` docs](https://www.npmjs.com/package/csv-parser)
 
 ---
 
@@ -493,6 +494,17 @@ reviews=#
 ![](images/2021-05-10-15-13-13.png)
 
 ![](images/2021-05-10-15-13-30.png)
+
+
+### Handling quotes in source data
+* When handling source csv files which contain quotes and working with `csv-parser`, handle quotes during *parsing*
+
+```js
+readableStream
+  .pipe(parse({
+    quote: false,
+  }))
+```
 
 
 ### Server and DB routing
