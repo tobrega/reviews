@@ -554,6 +554,7 @@ app.get('/all_users', async (req, res) => {
   ```
   ![](images/2021-05-10-22-39-31.png)
 
+* **UPDATE** (5/11/2021): After restarting computer, the problem is no longer reproducible. Rows return in the order expected.
 
 ---
 
