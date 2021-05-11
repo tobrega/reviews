@@ -554,3 +554,27 @@ app.get('/all_users', async (req, res) => {
   ```
   ![](images/2021-05-10-22-39-31.png)
 
+
+---
+
+5/11/2021  (W9D2)
+
+### node-postgres: Client vs. Pool
+- How can I choose between Client or Pool for node-postgres ([Stack Overflow](https://stackoverflow.com/questions/63588714/node9374-warning-to-load-an-es-module-set-type-module))
+  - "Use a pool if you have or expect to have multiple concurrent requests. That is literally what it is there for: to provide a pool of re-usable open `client` instances (reduces latency whenever a `client` can be reused)."
+
+  - "In that case you definitely **do not want** to call `pool.end()` when your query completes, you want to reserve that for when your application terminates because `pool.end()` disposes of all the open `client` instances. (Remember, the point is to keep up to a fixed number of `client` instances available.)"
+
+
+### Lecture: Scaling Your Architecture (Elder)
+* Use `nginx` as a server for load balancing
+  * We use a load balancer to distribute the load between the servers
+  * Reverse proxy
+
+  ![](images/2021-05-11-14-12-45.png)
+
+* We will need to tackle the client side together
+  * 4 load balancers in this service
+
+  ![](images/2021-05-11-14-26-14.png)
+
