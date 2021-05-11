@@ -577,4 +577,12 @@ app.get('/all_users', async (req, res) => {
   * 4 load balancers in this service
 
   ![](images/2021-05-11-14-26-14.png)
+* Post-Lecture Questions
+  * At minimum, we want to get to at least 100 requests; but we want to hit the largest number possible
+  * AWS has a built-in load balancer called [AWS Elastic Load Balancer]((https://aws.amazon.com/elasticloadbalancing))
+    * Can't use this on SDC, but
+    * ***Can certainly use Kubernetes***
+      * The difficult part is the configuration
+  * Can make Docker clusters with `Docker Swarm`
+  * Docker can be used alongside Kubernetes
 
