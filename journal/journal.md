@@ -537,6 +537,7 @@ app.get('/all_users', async (req, res) => {
   ![](images/2021-05-10-22-14-51.png)
 
 * Source file: `reviewsPhotosCleaned.csv`
+  * id's are in order, starting from `id = 1`
 
   ![](images/2021-05-10-22-15-30.png)
 
