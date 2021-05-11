@@ -521,3 +521,32 @@ app.get('/all_users', async (req, res) => {
 });
 ```
 
+### Issue: Query returns results in different order
+* Ran same query in both pgAdmin and psql interative terminal
+* Both methods return same result, results start at:  `id = 79284`
+
+* psql interactive terminal - result set
+
+  ![](images/2021-05-10-22-14-24.png)
+
+* pgAdmin4 - result set
+
+  ![](images/2021-05-10-22-14-51.png)
+
+* Source file: `reviewsPhotosCleaned.csv`
+
+  ![](images/2021-05-10-22-15-30.png)
+
+* Using `LIMIT` and `OFFSET` do not appear to change the result set:
+  ```sql
+  SELECT * FROM photos LIMIT 5 OFFSET 0;
+  ```
+  ![](images/2021-05-10-22-44-07.png)
+
+* However, using `ORDER BY id` does return a sorted result
+  * It appears that the preceding id's are actually in the table, but perhaps out-of-order
+  ```sql
+  SELECT * FROM photos ORDER BY id;
+  ```
+  ![](images/2021-05-10-22-39-31.png)
+
