@@ -1,33 +1,19 @@
-// import express from 'express';
-// import db from '../db';
 const express = require('express');
-// const db = require('../db/index.js');
+const db = require('../db/index.js');
+const router = require('./routes.js');
 
 const app = express();
 const port = 3000;
 app.use(express.json());
 
-// app.use(express.static(__dirname + '/../client/dist'));
+// EXTERNAL ENDPOINT
+app.get('/', (req, res) => { res.status(200).send('Connect to endpoint at /reviews') })
 
-const router = express.Router();
-
-router.get('/reviews', (req, res) => {
-  db.getAllReviews((err, results) => {
-    if (err) {
-      res.status(500).send('Error in retrieving reviews:', err);
-    } else {
-      res.status(200).send(results);
-    }
-  })
-});
-
-const query = 'SELECT * FROM reviews';
+// REVIEWS ENDPOINT
+app.get('/reviews', router)
 
 app.listen(port, () => {
-  // eslint-disable-next-line no-console
   console.log(`listening on port ${port}`);
 });
 
-module.exports = {
-  app
-}
+module.exports = { app };
