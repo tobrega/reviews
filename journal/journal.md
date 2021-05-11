@@ -523,7 +523,7 @@ app.get('/all_users', async (req, res) => {
 
 ### Issue: Query returns results in different order
 * Observing an issue where queries return a result set that starts at:  `id = 79284`
-* Ran same query in both pgAdmin and psql interative terminal
+* Ran same query in both pgAdmin and psql interactive terminal
 * Both methods appear to return same result set
 
 * psql interactive terminal - result set
