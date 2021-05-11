@@ -12,7 +12,7 @@
     "url": "git+https://github.com/tobrega/tobrega-reviews.git"
   },
   "keywords": [],
-  "author": "ToBreGa",
+  "author": "Tony Ly",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tobrega/tobrega-reviews/issues"
@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "csv-parser": "^3.0.0",
+    "express": "^4.17.1",
     "fast-csv": "^4.3.6",
     "pg": "^8.6.0",
     "pool": "^0.4.1",
