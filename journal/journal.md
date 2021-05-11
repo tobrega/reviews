@@ -561,12 +561,22 @@ app.get('/all_users', async (req, res) => {
 
 ### node-postgres: Client vs. Pool
 - How can I choose between Client or Pool for node-postgres ([Stack Overflow](https://stackoverflow.com/questions/63588714/node9374-warning-to-load-an-es-module-set-type-module))
-  - "Use a pool if you have or expect to have multiple concurrent requests. That is literally what it is there for: to provide a pool of re-usable open `client` instances (reduces latency whenever a `client` can be reused)."
+  > Use a pool if you have or expect to have multiple concurrent requests. That is literally what it is there for: to provide a pool of re-usable open `client` instances (reduces latency whenever a `client` can be reused).
 
-  - "In that case you definitely **do not want** to call `pool.end()` when your query completes, you want to reserve that for when your application terminates because `pool.end()` disposes of all the open `client` instances. (Remember, the point is to keep up to a fixed number of `client` instances available.)"
+  > In that case you definitely **do not want** to call `pool.end()` when your query completes, you want to reserve that for when your application terminates because `pool.end()` disposes of all the open `client` instances. (Remember, the point is to keep up to a fixed number of `client` instances available.)
 
 
 ### Lecture: Scaling Your Architecture (Elder)
+* Two Types of Scaling
+  1. Vertical
+  2. Horizonal
+* Vertical Scaling
+  * Allocating more resources to the application
+  * "Throwing money at the problem"
+* Horizonal Scaling
+  * Duplicating code and running it on additional machines
+  * Scaling horizonally can be powerful, but will require us to address the new challenge of having multiple servers (i.e. introduce a load balancer)
+
 * Use `nginx` as a server for load balancing
   * We use a load balancer to distribute the load between the servers
   * Reverse proxy
