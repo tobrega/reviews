@@ -522,12 +522,13 @@ app.get('/all_users', async (req, res) => {
 ```
 
 ### Issue: Query returns results in different order
+* Observing an issue where queries return a result set that starts at:  `id = 79284`
 * Ran same query in both pgAdmin and psql interative terminal
-* Both methods return same result, results start at:  `id = 79284`
+* Both methods appear to return same result set
 
 * psql interactive terminal - result set
 
-  ![](images/2021-05-10-22-14-24.png)
+  ![](images/2021-05-10-22-48-01.png)
 
 * pgAdmin4 - result set
 
