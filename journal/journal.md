@@ -589,6 +589,7 @@ app.get('/all_users', async (req, res) => {
   ![](images/2021-05-11-14-26-14.png)
 * Post-Lecture Questions
   * At minimum, we want to get to at least 100 requests; but we want to hit the largest number possible
+  * Let Josh know if we ever get to 10,000 requests
   * AWS has a built-in load balancer called [AWS Elastic Load Balancer]((https://aws.amazon.com/elasticloadbalancing))
     * Can't use this on SDC, but
     * ***Can certainly use Kubernetes***
