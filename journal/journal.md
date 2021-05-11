@@ -596,4 +596,12 @@ app.get('/all_users', async (req, res) => {
       * The difficult part is the configuration
   * Can make Docker clusters with `Docker Swarm`
   * Docker can be used alongside Kubernetes
-
+  * [Apache vs. Nginx: Practical Considerations](https://www.digitalocean.com/community/tutorials/apache-vs-nginx-practical-considerations)
+    * Apache is flexible in the way it handles connections and traffic
+      * Uses multi-processing modules (MPMs) that change how client requests are handled
+      * Admininistrators can swap these modules out easily, allowing for flexible connection handling architecture
+    * Nginx is more optimized for load balancing
+      * Nginx was launched after Apache, with awareness of the challenges Apache faced with concurrency problems at scale
+      * Nginx was designed from the start to use an **asynchronous, non-blocking, event-driven connection handlign algorithm**
+      * Spawns worker processes
+      * Can scale far with limited resources
