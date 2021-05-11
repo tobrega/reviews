@@ -606,3 +606,11 @@ app.get('/all_users', async (req, res) => {
       * Nginx was designed from the start to use an **asynchronous, non-blocking, event-driven connection handlign algorithm**
       * Spawns worker processes
       * Can scale far with limited resources
+
+
+### Configuring Express Server & Postgres
+
+* Node.js, Express.js, and PostgreSQL: CRUD REST API example ([LogRocket](https://blog.logrocket.com/nodejs-expressjs-postgresql-crud-rest-api-example/))
+
+
+
