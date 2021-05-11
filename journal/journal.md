@@ -527,7 +527,9 @@ app.get('/all_users', async (req, res) => {
 * Both methods appear to return same result set
 
 * psql interactive terminal - result set
-
+  ```sql
+  SELECT * FROM photos;
+  ```
   ![](images/2021-05-10-22-48-01.png)
 
 * pgAdmin4 - result set
