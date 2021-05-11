@@ -495,7 +495,7 @@ reviews=#
 ![](images/2021-05-10-15-13-30.png)
 
 
-# Server and DB routing
+### Server and DB routing
 - [Express with async/await](https://node-postgres.com/guides/async-express) (Brenton)
 - Using Async/Await with node-postgres ([StackOverflow](https://stackoverflow.com/questions/53910835/using-async-await-with-node-postgres))
 ```js
@@ -508,3 +508,4 @@ app.get('/all_users', async (req, res) => {
   }
 });
 ```
+
