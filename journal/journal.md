@@ -45,6 +45,7 @@
 * [Turn on query execution time](https://www.postgresqltutorial.com/psql-commands/) (Brenton, #14)
 * [PostgreSQL Cheatsheet](https://gist.github.com/Kartones/dd3ff5ec5ea238d4c546) #1
 * [PostgreSQL Cheatsheet](https://www.postgresqltutorial.com/postgresql-cheat-sheet/) #2
+* [Express with async/await](https://node-postgres.com/guides/async-express) (Brenton)
 
 ---
 
@@ -493,3 +494,17 @@ reviews=#
 
 ![](images/2021-05-10-15-13-30.png)
 
+
+# Server and DB routing
+- [Express with async/await](https://node-postgres.com/guides/async-express) (Brenton)
+- Using Async/Await with node-postgres ([StackOverflow](https://stackoverflow.com/questions/53910835/using-async-await-with-node-postgres))
+```js
+app.get('/all_users', async (req, res) => {
+  try {
+    const users = await queries.getAllUsers();
+    console.log(users);
+  } catch(e) {
+    // handle errors
+  }
+});
+```
