@@ -12,6 +12,9 @@ app.get('/', (req, res) => { res.status(200).send('Connect to endpoint at /revie
 // REVIEWS ENDPOINT
 app.get('/reviews', router)
 
+// PARAM: product_id
+app.get('/reviews/:product_id', router);
+
 app.listen(port, () => {
   console.log(`listening on port ${port}`);
 });
