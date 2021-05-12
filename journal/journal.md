@@ -1,4 +1,4 @@
-# Tony Ly’s SDC Engineering Journal and Notes
+# Tony Ly's System Design Capstone Engineering Journal
 ### Contacts:
 * [Website/Resume](http://tonyly.com/)
 * [GitHub](https://github.com/tonyjly)
