@@ -636,6 +636,7 @@ app.get('/all_users', async (req, res) => {
   * This article provides a couple ways to query nested data in Postgres:
     * "naive solution" (slower)
     * "optimized solution" (faster)
+* FEC Atelier Reviews API ([Learn](https://learn-2.galvanize.com/cohorts/2596/blocks/94/content_files/Front%20End%20Capstone/project-atelier-catwalk/reviews.md))
 * Querying `/reviews/:product_id` where `product_id = 20100` returns a result set of an array of 5 objects within 296 ms
 
   ![](images/2021-05-11-22-47-33.png)
