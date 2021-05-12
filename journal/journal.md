@@ -650,8 +650,8 @@ app.get('/all_users', async (req, res) => {
   * First 5000 PR's get swag in the mail
 
 ### Server & Routes
-  * Server should have `app.use`
-  * Routes will have `app.get`, `app.post`, `app.put`, etc.
+  - ✅ Server should have `app.use`
+  - ✅ :heavy_check_mark: Routes will have `app.get`, `app.post`, `app.put`, etc.
 
 ### Querying (cont.)
   * Two general strategies we can take to construct queries for Postgres
