@@ -611,6 +611,7 @@ app.get('/all_users', async (req, res) => {
 ### Configuring Express Server & Postgres
 
 * Node.js, Express.js, and PostgreSQL: CRUD REST API example ([LogRocket](https://blog.logrocket.com/nodejs-expressjs-postgresql-crud-rest-api-example/))
+
 * Is `body-parser` necessary? ([Medium](https://medium.com/@mmajdanski/express-body-parser-and-why-may-not-need-it-335803cd048c))
   * No longer needed, if we're using Express 4.16+
   ```js
@@ -620,6 +621,13 @@ app.get('/all_users', async (req, res) => {
   app.use(express.urlencoded()); // Parse URL-encoded bodies
   ```
 
+* Pooling ([node-postgres](https://node-postgres.com/features/pooling))
+  * >Connecting a new client to the PostgreSQL server requires a handshake which can take 20-30 milliseconds.
+  * >During this time passwords are negotiated, SSL may be established, and configuration information is shared with the client & server.
+  * > Incurring this cost every time we want to execute a query would substantially slow down our application.
+  * > The PostgreSQL server can only handle a [limited number of clients at a time](https://wiki.postgresql.org/wiki/Number_Of_Database_Connections).
+    * > Pg will usually complete the same 10,000 transactions faster by doing them 5, 10 or 20 at a time than by doing them 500 at a time.
+  * > PostgreSQL can only process one query at a time on a single connected client in a **first-in first-out** manner (FIFO).
 
 
 
