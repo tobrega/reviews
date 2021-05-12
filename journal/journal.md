@@ -651,7 +651,7 @@ app.get('/all_users', async (req, res) => {
 
 ### Server & Routes
   - [x] Server should have `app.use`
-  - [] Routes will have `app.get`, `app.post`, `app.put`, etc.
+  - [ ] Routes will have `app.get`, `app.post`, `app.put`, etc.
 
 ### Querying (cont.)
   * Two general strategies we can take to construct queries for Postgres
