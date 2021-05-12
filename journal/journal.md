@@ -630,4 +630,9 @@ app.get('/all_users', async (req, res) => {
   * > PostgreSQL can only process one query at a time on a single connected client in a **first-in first-out** manner (FIFO).
 
 
+### Querying
+* Querying `/reviews/:product_id` where `product_id = 20100` returns a result set of an array of 5 objects within 296 ms
+
+  ![](images/2021-05-11-22-47-33.png)
+
 
