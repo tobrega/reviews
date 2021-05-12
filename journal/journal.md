@@ -641,3 +641,36 @@ app.get('/all_users', async (req, res) => {
 
   ![](images/2021-05-11-22-47-33.png)
 
+
+---
+
+## 5/12/2021  (W9D3)
+
+* Submitted an entry to the [GitHub Graduation 2021 Yearbook](https://github.com/education/GitHubGraduation-2021)
+  * First 5000 PR's get swag in the mail
+
+### Server & Routes
+  * Server should have `app.use`
+  * Routes will have `app.get`, `app.post`, `app.put`, etc.
+
+### Querying (cont.)
+  * Two general strategies we can take to construct queries for Postgres
+    1. Multiple queries, shape results in Javascript
+        * expect: easier to implement, more difficult to shape, may be less performant
+
+    2. Single query with nested data, shape results from query to Postgres ([Pete Cowles](https://itnext.io/query-nested-data-in-postgres-using-node-js-35e985368ea4))
+        * expect: more difficult to implement, little/no shaping in Javascript, may be more performant
+  * I plan to use the first strategy in writing multiple queries and then shaping the data in JS in the interest of *prioritizing time towards scaling the architecture*, instead of perfecting the db query
+    * Perhaps this is the more valuable knowledge/experience to gain from this capstone
+  * Use `async/await` and `Promise.all([])` to query db and shape data to return to the client
+    *
+
+
+id | product_id | rating |    date    |              summary              |                                                                    body                                                                     | recommend | reported |   reviewer_name    |    reviewer_email    |             response              | helpfulness
+----|------------|--------|------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|-----------|----------|--------------------|----------------------|-----------------------------------|-------------
+  1 |          1 | 5      | 2020-07-30 | _summary_           | _body_ | t         | f        | funtime            | @ | null                              |           8
+  2 |          1 | 4      | 2021-01-09 | _summary_               | _body_                                                         | f         | f        | mymainstreammother | @ | null                              |           2
+  3 |          2 | 4      | 2020-12-30 | _summary_          | _body_                                                                        | t         | f        | bigbrotherbenjamin | @ | _response_  |           5
+  4 |          2 | 4      | 2020-07-01 | _summary_               | _body_                                                                                                         | t         | f        | fashionperson      | @ | null                              |           1
+  5 |          2 | 3      | 2021-03-17 | _summary_  | _body_                                                                                                                  | t         | f        | shortandsweeet     | @ | null                              |           5
+(5 rows)
