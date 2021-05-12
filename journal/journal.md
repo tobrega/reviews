@@ -1,4 +1,5 @@
-# Tony Ly's System Design Capstone Engineering Journal
+# System Design Capstone Engineering Journal
+## Author: Tony Ly
 ### Contacts:
 * [Website/Resume](http://tonyly.com/)
 * [GitHub](https://github.com/tonyjly)
