@@ -613,8 +613,12 @@ app.get('/all_users', async (req, res) => {
 * Node.js, Express.js, and PostgreSQL: CRUD REST API example ([LogRocket](https://blog.logrocket.com/nodejs-expressjs-postgresql-crud-rest-api-example/))
 * Is `body-parser` necessary? ([Medium](https://medium.com/@mmajdanski/express-body-parser-and-why-may-not-need-it-335803cd048c))
   * No longer needed, if we're using Express 4.16+
-  * `app.use(express.json()); // Used to parse JSON bodies`
-  * `app.use(express.urlencoded()); // Parse URL-encoded bodies`
+  ```js
+  app.use(express.json()); // Used to parse JSON bodies
+  ```
+  ```js
+  app.use(express.urlencoded()); // Parse URL-encoded bodies
+  ```
 
 
 
