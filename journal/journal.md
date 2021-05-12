@@ -621,7 +621,7 @@ app.get('/all_users', async (req, res) => {
   app.use(express.urlencoded()); // Parse URL-encoded bodies
   ```
 
-* Pooling ([node-postgres](https://node-postgres.com/features/pooling))
+* Pooling ([node-postgres](https://node-postgres.com/features/pooling)) ([pg.Pool](https://node-postgres.com/api/pool))
   * >Connecting a new client to the PostgreSQL server requires a handshake which can take 20-30 milliseconds.
   * >During this time passwords are negotiated, SSL may be established, and configuration information is shared with the client & server.
   * > Incurring this cost every time we want to execute a query would substantially slow down our application.
