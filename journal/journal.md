@@ -27,6 +27,7 @@
 * [Example Trello Project](https://trello.com/b/FcySKoaf/example-trello-project) (Julian Yuen)
 * [Markdown Reference](https://commonmark.org/) (CommonMark) ([README](https://learn-2.galvanize.com/cohorts/2596/blocks/101/content_files/System%20Design%20Capstone/exercises/writing_readmes.md))
 * [Markdown Tables Generator](https://tableconvert.com/) (TableConvert)
+* [Markdown Emojis](https://github.com/StylishThemes/GitHub-Dark/wiki/Emoji)
 * [Guide to Javascript Date and moment.js](https://www.freecodecamp.org/news/the-ultimate-guide-to-javascript-date-and-moment-js/)
 * [Gabe Acevedo IMDB](https://www.imdb.com/name/nm3629799/) (!!)
 * [Fireship: Async Await](https://youtu.be/vn3tm0quoqE) (Brenton)
@@ -651,7 +652,7 @@ app.get('/all_users', async (req, res) => {
 
 ### Server & Routes
   - [x] Server should have `app.use`
-  - [ ] Routes will have `app.get`, `app.post`, `app.put`, etc.
+  - [x] Routes will have `app.get`, `app.post`, `app.put`, etc.
 
 ### Querying (cont.)
   * Two general strategies we can take to construct queries for Postgres
