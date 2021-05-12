@@ -631,8 +631,12 @@ app.get('/all_users', async (req, res) => {
 
 
 ### Querying
+* [Query Nested Data in Postgres using Node.js](https://itnext.io/query-nested-data-in-postgres-using-node-js-35e985368ea4) (Brenton, Pete)
+  * Postgres has some functions that allow returning complex data structures directly as “JSON”. This works great with node.js because they just become native JavaScript objects.
+  * This article provides a couple ways to query nested data in Postgres:
+    * "naive solution" (slower)
+    * "optimized solution" (faster)
 * Querying `/reviews/:product_id` where `product_id = 20100` returns a result set of an array of 5 objects within 296 ms
 
   ![](images/2021-05-11-22-47-33.png)
-
 
