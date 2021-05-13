@@ -52,6 +52,7 @@
 - [PostgreSQL Cheatsheet](https://www.postgresqltutorial.com/postgresql-cheat-sheet/) #2
 - [Express with async/await](https://node-postgres.com/guides/async-express) (Brenton)
 - [`csv-parser` docs](https://www.npmjs.com/package/csv-parser)
+- [knex.js - Query Builder](https://github.com/knex/knex)
 
 ---
 
