@@ -826,9 +826,33 @@ Configure PostgreSQL
 ```
 sudo -u postgres psql
 
+sudo -u postgres createuser --interactive --pwprompt
 ```
 
+Prompts
+```
+Enter name of role to add: tobrega
+Enter password for new role:
+Enter it again:
+Shall the new role be a superuser? (y/n) n
+Shall the new role be allowed to create databases? (y/n) y
+Shall the new role be allowed to create more new roles? (y/n) y
+```
 
+Create PostgreSQL database
+```
+sudo -u postgres createdb -O tobrega reviews
+```
+
+```
+nano /etc/postgresql/13/main/postgresql.conf
+```
+
+```
+nano /etc/postgresql/13/main/pg_hba.conf
+sudo ufw allow 5432/tcp
+sudo systemctl restart postgresql
+```
 
 ### Installing PostgreSQL on EC2
 - Add PostgreSQL Apt Repository & Install ([PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/))
