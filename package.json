@@ -7,7 +7,7 @@
     "start": "npx nodemon server/index.js",
     "fec": "npx nodemon ../hr-sea16-fec3-project-catwalk/server/index.js",
     "test": "jest --watchAll --collect-coverage",
-    "journal": "git add journal/ && git commit -m 'update journal' && git push"
+    "journal": "git add journal/ && git commit journal/ -m 'update journal' && git push"
   },
   "repository": {
     "type": "git",
