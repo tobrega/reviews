@@ -795,6 +795,41 @@ Created a budget, with email alert if I exceed $0.01
   - Identify bottlenecks in our architecture
   - Reach the highest RPS as we can
 
+### Deploying Database on an EC2 Instance
+
+Login via SSH
+```
+ssh -i sdc_reviews.pem ubuntu@54.67.17.203
+```
+
+Clone repo, install packages
+```
+git clone https://github.com/tobrega/tobrega-reviews.git
+
+cd tobrega-reviews/
+
+npm install
+```
+
+Install PostgreSQL
+```
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+
+sudo apt-get update
+
+sudo apt-get -y install postgresql
+```
+
+Configure PostgreSQL
+```
+sudo -u postgres psql
+
+```
+
+
+
 ### Installing PostgreSQL on EC2
 - Add PostgreSQL Apt Repository & Install ([PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/))
 -
