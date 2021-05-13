@@ -718,3 +718,60 @@ id | product_id | rating |    date    |              summary              |     
   4 |          2 | 4      | 2020-07-01 | _summary_               | _body_                                                                                                         | t         | f        | fashionperson      | @ | null                              |           1
   5 |          2 | 3      | 2021-03-17 | _summary_  | _body_                                                                                                                  | t         | f        | shortandsweeet     | @ | null                              |           5
 (5 rows)
+
+* AWS Account Suspension
+  * Account was suspended and subsequently terminated due to not logging in within a period of time following suspension
+  * Note to self
+    * Make sure to not let account become suspended
+    * If suspended, make sure to login within 60 or 90 days so that it does not get terminated
+    * Terminated accounts **cannot** be reactivated
+    * Email accounts associated with terminated accounts may not be reused for a new account; must use a different email address
+  * Made a new account using a new email address
+
+  ![](images/2021-05-12-22-57-26.png)
+
+### AWS Deployment
+* [AWS Management Console](https://console.aws.amazon.com/console/home)
+
+![](images/2021-05-12-23-43-46.png)
+
+![](images/2021-05-12-23-43-03.png)
+
+Restrict SSH access to my personal IP only
+![](images/2021-05-12-23-44-43.png)
+
+![](images/2021-05-12-23-45-08.png)
+
+Download `.pem` file, and launch instance
+![](images/2021-05-12-23-51-11.png)
+
+Make the `.pem` file read-only
+  ```
+  chmod 400 sdc_reviews.pem
+  ```
+
+SSH into the AWS EC2 t2.micro instance
+```
+ssh -i sdc_reviews.pem ubuntu@AWS_SERVER_IP
+```
+
+Update system
+```
+sudo apt-get update && sudo apt-get upgrade -y
+```
+
+Install Node.js v16
+```
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+sudo apt-get install -y nodejs
+```
+
+Reroute all traffic received at `:80` to `:3000`
+```
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3000
+```
+
+![](images/2021-05-13-00-18-14.png)
+
+Created a budget, with notification if I exceed $0.01
+![](images/2021-05-13-00-35-51.png)
