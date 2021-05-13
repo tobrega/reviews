@@ -808,4 +808,3 @@ First run, default options
 10 VUs, 30s
 ![](images/2021-05-13-10-25-31.png)
 
-test
