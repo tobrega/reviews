@@ -680,6 +680,8 @@ app.get('/all_users', async (req, res) => {
 
 * [PostgreSQL Foreign Keys](https://www.postgresql.org/docs/13/tutorial-fk.html)
   * My SQL schema currently does not contain foreign keys
+    * Lacking foreign keys may introduce the risk of adding rows to tables which lack an otherwise necessary matching entry in another table (i.e. referential integrity)
+    * e.g. Adding a review photo url to the table, for which a matching review does not exist
   * > You want to make sure that no one can insert rows in the weather table that do not have a matching entry in the cities table.
   * > This is called maintaining the referential integrity of your data.
 
@@ -774,5 +776,35 @@ sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-po
 
 ![](images/2021-05-13-00-18-14.png)
 
-Created a budget, with notification if I exceed $0.01
+Created a budget, with email alert if I exceed $0.01
 ![](images/2021-05-13-00-35-51.png)
+
+
+---
+
+## 5/13/2021
+
+### Stress Testing
+- k6.io (local testing) ([install](https://k6.io/docs/getting-started/installation/#linux)) ([run](https://k6.io/docs/getting-started/running-k6/))
+- [loader.io](https://loader.io/) (cloud testing)
+- [New Relic](https://newrelic.com/)
+
+### Deployment
+- Deploy db on AWS first
+- The goals of SDC
+  - Identify bottlenecks in our architecture
+  - Reach the highest RPS as we can
+
+### Installing PostgreSQL on EC2
+- Add PostgreSQL Apt Repository & Install ([PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/))
+-
+
+
+### Local Stress Testing (k6)
+
+First run, default options
+![](images/2021-05-13-10-22-59.png)
+
+10 VUs, 30s
+![](images/2021-05-13-10-25-31.png)
+
