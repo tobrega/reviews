@@ -731,6 +731,7 @@ id | product_id | rating |    date    |              summary              |     
   ![](images/2021-05-12-22-57-26.png)
 
 ### AWS Deployment
+* [Lecture: Intro to AWS](https://docs.google.com/presentation/d/e/2PACX-1vSfUDpvL_x-g5FV9Su-R_1EGikA1Zy0YdUCoVSoyAYAd8EzPkmtJBkHirR0H3VBI9fcXO9vN-8W7Tye/embed?start=false&loop=false&delayms=3000)
 * [AWS Management Console](https://console.aws.amazon.com/console/home)
 
 ![](images/2021-05-12-23-43-46.png)
