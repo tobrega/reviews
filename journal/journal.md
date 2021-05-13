@@ -808,14 +808,14 @@ Created a budget, with email alert if I exceed $0.01
 
 Login via SSH
 ```
-ssh -i sdc_reviews.pem ubuntu@54.67.17.203
+ssh -i sdc_reviews.pem ubuntu@REMOTE_IP
 ```
 
 Clone repo, install packages
 ```
-git clone https://github.com/tobrega/tobrega-reviews.git
+git clone https://github.com/repo/repo.git
 
-cd tobrega-reviews/
+cd repo/
 
 npm install
 ```
@@ -840,7 +840,7 @@ sudo -u postgres createuser --interactive --pwprompt
 
 Prompts
 ```
-Enter name of role to add: tobrega
+Enter name of role to add: user
 Enter password for new role:
 Enter it again:
 Shall the new role be a superuser? (y/n) n
@@ -850,7 +850,7 @@ Shall the new role be allowed to create more new roles? (y/n) y
 
 Create PostgreSQL database
 ```
-sudo -u postgres createdb -O tobrega reviews
+sudo -u postgres createdb -O user database
 ```
 
 Allow remote access
