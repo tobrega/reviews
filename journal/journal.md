@@ -635,6 +635,29 @@ app.get('/all_users', async (req, res) => {
     * > Pg will usually complete the same 10,000 transactions faster by doing them 5, 10 or 20 at a time than by doing them 500 at a time.
   * > PostgreSQL can only process one query at a time on a single connected client in a **first-in first-out** manner (FIFO).
 
+    ```js
+    module.exports = {
+      host: 'localhost',
+      port: 5432,
+      database: 'reviews',
+      user: 'user',
+      password: 'hunter2',
+
+      // number of milliseconds to wait before timing out when connecting a new client
+      // by default this is 0 which means no timeout
+      connectionTimeoutMillis: 2000,
+
+      // number of milliseconds a client must sit idle in the pool and not be checked out
+      // before it is disconnected from the backend and discarded
+      // default is 10000 (10 seconds) - set to 0 to disable auto-disconnection of idle clients
+      idleTimeoutMillis: 30000,
+
+      // maximum number of clients the pool should contain
+      // by default this is set to 10.
+      max: 20,
+    }
+    ```
+
 
 ### Querying
 * [Query Nested Data in Postgres using Node.js](https://itnext.io/query-nested-data-in-postgres-using-node-js-35e985368ea4) (Brenton, Pete)
