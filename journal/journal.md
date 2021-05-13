@@ -655,6 +655,11 @@ app.get('/all_users', async (req, res) => {
 * Submitted an entry to the [GitHub Graduation 2021 Yearbook](https://github.com/education/GitHubGraduation-2021)
   * First 5000 PR's get swag in the mail
 
+* [PostgreSQL Foreign Keys](https://www.postgresql.org/docs/13/tutorial-fk.html)
+  * My SQL schema currently does not contain foreign keys
+  * > You want to make sure that no one can insert rows in the weather table that do not have a matching entry in the cities table.
+  * > This is called maintaining the referential integrity of your data.
+
 ### Server & Routes
   - [x] Server should have `app.use`
   - [x] Routes will have `app.get`, `app.post`, `app.put`, etc.
@@ -670,7 +675,17 @@ app.get('/all_users', async (req, res) => {
     * Perhaps this is the more valuable knowledge/experience to gain from this capstone
   * Use `async/await` and `Promise.all([])` to query db and shape data to return to the client
     *
-
+  * Row mode ([node-postgres](https://node-postgres.com/features/queries)) (Brenton)
+    * > By default node-postgres reads rows and collects them into JavaScript objects with the keys matching the column names and the values matching the corresponding row value for each column.
+    * > If you do not need or do not want this behavior you can pass rowMode: 'array' to a query object.
+    * > This will inform the result parser to bypass collecting rows into a JavaScript object, and instead will return each row as an array of values.
+      ```js
+      const query = {
+        text: 'SELECT $1::text as first_name, select $2::text as last_name',
+        values: ['Brian', 'Carlson'],
+        rowMode: 'array',
+      }
+      ```
 
 id | product_id | rating |    date    |              summary              |                                                                    body                                                                     | recommend | reported |   reviewer_name    |    reviewer_email    |             response              | helpfulness
 ----|------------|--------|------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|-----------|----------|--------------------|----------------------|-----------------------------------|-------------
