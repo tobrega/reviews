@@ -65,9 +65,18 @@ sudo docker run --name postgresql-container -p 5432:5432 -e POSTGRES_PASSWORD=st
 
 ### PostgreSQL Commands
 
-Enter PSQL Terminal
+Login to PSQL Interactive Terminal (local)
 ```
 psql -d reviews -U tony -W
+
+OR
+
+sudo -u postgres psql
+```
+
+Login to PSQL Interactive Terminal (remote)
+```
+psql -U tobrega -h localhost -d reviews
 ```
 
 Query
@@ -811,7 +820,7 @@ cd tobrega-reviews/
 npm install
 ```
 
-Install PostgreSQL
+[Install PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/)
 ```
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 
@@ -844,12 +853,23 @@ Create PostgreSQL database
 sudo -u postgres createdb -O tobrega reviews
 ```
 
+Allow remote access
 ```
 nano /etc/postgresql/13/main/postgresql.conf
+
+listen_addresses = '*'  // uncomment and change to this
 ```
 
+Allow connections from
 ```
 nano /etc/postgresql/13/main/pg_hba.conf
+
+# IPv4 local connections:
+host    all             all             0.0.0.0/0            md5
+```
+
+
+```
 sudo ufw allow 5432/tcp
 sudo systemctl restart postgresql
 ```
