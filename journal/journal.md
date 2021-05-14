@@ -844,7 +844,7 @@ Created a budget, with email alert if I exceed $0.01
 
 ---
 
-## 5/13/2021
+## 5/13/2021  (W9D4)
 
 ### Stress Testing
 - k6.io (local testing) ([install](https://k6.io/docs/getting-started/installation/#linux)) ([run](https://k6.io/docs/getting-started/running-k6/))
@@ -858,6 +858,8 @@ Created a budget, with email alert if I exceed $0.01
   - Reach the highest RPS as we can
 
 ### Deploying Database on an EC2 Instance
+- Setting up a remote Postgres database server on Ubuntu 18.04 ([LogRocket](https://blog.logrocket.com/setting-up-a-remote-postgres-database-server-on-ubuntu-18-04/))
+- Copying PostgreSQL database to another server ([Stack Overflow](https://stackoverflow.com/questions/1237725/copying-postgresql-database-to-another-server))
 
 Login via SSH
 ```
