@@ -939,7 +939,7 @@ Query 1:  Which returns this result
 
 This is the general shape that I want to achieve in my results. However, photos should return an array at all times. If there are no photos, I should return an empty array.
 
-While the goal is to use the PostgreSQL Conditional Expression `COALESCE ` for a more efficient and elegant method of handling `null` cases, I had difficulty implementing this in my query.
+While the goal is to use the PostgreSQL Conditional Expression `COALESCE` for a more efficient and elegant method of handling `null` cases, I had difficulty implementing this in my query.
 
 In the meantime, I solved this problem in Javascript so that I can get closer to deploying the server. I plan to circle back and adjust this query. It will be interesting to note the difference in query execution time (between Javascript implementation vs. PostgreSQL `COALESCE`) and its impact on RPS.
 ```js
