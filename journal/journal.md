@@ -27,7 +27,6 @@
   - [5/7/2021  (W8D5)](#572021--w8d5)
   - [5/8/2021  (W8D6)](#582021--w8d6)
   - [5/10/2021  (W9D1)](#5102021--w9d1)
-    - [Notes](#notes)
     - [Changed how `prepareReviews.js` handles dates](#changed-how-preparereviewsjs-handles-dates)
     - [Running `prepareReviews.js`:](#running-preparereviewsjs)
     - [Import schema](#import-schema)
@@ -483,9 +482,6 @@ console.log(JSON.stringify(times, null, 2));
 
 ## 5/10/2021  (W9D1)
 
-### Notes
-- AM standup
-
 ### Changed how `prepareReviews.js` handles dates
 - In the source data file, we start off with three different date formats
   - unix timestamp
@@ -503,7 +499,7 @@ console.log(JSON.stringify(times, null, 2));
 - Once the dates are in these formats with the date constructor, I convert it to ISO string format, which is the [recommended format that PostgreSQL accepts](https://www.postgresql.org/docs/9.1/datatype-datetime.html)
 - Reference: [The Ultimate Guide to PostgreSQL Date By Examples](https://www.postgresqltutorial.com/postgresql-date/#:~:text=Introduction%20to%20the%20PostgreSQL%20DATE%20data%20type&text=The%20lowest%20and%20highest%20values,%2C%202000%2D12%2D31.) (PostgreSQL Tutorial)
 
-### Running `prepareReviews.js`:
+#### Running `prepareReviews.js`:
 ```
 5700000 rows processed
 CSV file successfully processed in 112.221 seconds
