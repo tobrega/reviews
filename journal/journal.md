@@ -626,7 +626,7 @@ app.get('/all_users', async (req, res) => {
 
 ---
 
-5/11/2021  (W9D2)
+## 5/11/2021  (W9D2)
 
 ### node-postgres: Client vs. Pool
 - How can I choose between Client or Pool for node-postgres ([Stack Overflow](https://stackoverflow.com/questions/63588714/node9374-warning-to-load-an-es-module-set-type-module))
