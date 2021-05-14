@@ -929,6 +929,10 @@ sudo systemctl restart postgresql
 
 ### Local Stress Testing (k6)
 
+```
+k6 run script.js
+```
+
 First run, default options
 ![](images/2021-05-13-10-22-59.png)
 
@@ -1006,4 +1010,10 @@ VUs: 10; Duration: 30s; Sleep = 1
 VUs: 1000, Duration: 30s; Sleep = 0.1
 
 ![](images/2021-05-14-00-10-57.png)
+
+
+---
+
+
+## 5/14/2021  (W9D5)
 
