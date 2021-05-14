@@ -39,6 +39,7 @@
     - [Handling quotes in source data](#handling-quotes-in-source-data)
     - [Server and DB routing](#server-and-db-routing)
     - [Issue: Query returns results in different order](#issue-query-returns-results-in-different-order)
+    [5/11/2021 (W9D2)](#5112021--w9d2)
     - [node-postgres: Client vs. Pool](#node-postgres-client-vs-pool)
     - [Lecture: Scaling Your Architecture (Elder)](#lecture-scaling-your-architecture-elder)
     - [Configuring Express Server & Postgres](#configuring-express-server--postgres)
