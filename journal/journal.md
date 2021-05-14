@@ -886,3 +886,75 @@ First run, default options
 10 VUs, 30s
 ![](images/2021-05-13-10-25-31.png)
 
+### Query Writing
+
+Query 1:  With the help of my colleagues, we were able to write this query
+```sql
+SELECT id,
+        rating,
+        summary,
+        recommend,
+        response,
+        body,
+        date,
+        reviewer_name,
+        reviewer_email,
+        helpfulness,
+        (
+          SELECT ARRAY_TO_JSON(ARRAY_AGG(ROW_TO_JSON(p)))
+          FROM (
+              SELECT id,
+                url
+              FROM photos
+              WHERE r.id = photos.review_id
+            ) p
+        ) AS photos,
+        reported
+      FROM reviews r
+      WHERE product_id = $1;
+```
+
+Query 1:  Which returns this result
+```js
+[
+  {
+    "id": 115566,
+    "rating": "4",
+    "summary": "Velit cumque nulla itaque eos eos explicabo totam.",
+    "recommend": true,
+    "response": "null",
+    "body": "Illum ullam enim rerum omnis reiciendis.", // value truncated
+    "date": "2020-06-13T07:00:00.000Z", // double-check time format
+    "reviewer_name": "Christophe33",
+    "reviewer_email": "Nicolas_Hodkiewicz@hotmail.com",
+    "helpfulness": 19,
+    "photos": null, // should return empty array; look into COALESCE
+    "reported": false
+  },
+
+  ...
+
+]
+```
+
+This is the general shape that I want to achieve in my results. However, photos should return an array at all times. If there are no photos, I should return an empty array.
+
+While the goal is to use the PostgreSQL Conditional Expression `COALESCE ` for a more efficient and elegant method of handling `null` cases, I had difficulty implementing this in my query.
+
+In the meantime, I solved this problem in Javascript so that I can get closer to deploying the server. I plan to circle back and adjust this query. It will be interesting to note the difference in query execution time (between Javascript implementation vs. PostgreSQL `COALESCE`) and its impact on RPS.
+```js
+// TODO: Use COALESCE to handle when photos array === null
+results.rows.map((row) => {
+  if (row.photos === null) { row.photos = []; }
+})
+```
+
+VUs: 10; Duration: 30s; Sleep = 1
+
+![](images/2021-05-14-00-10-03.png)
+
+
+VUs: 1000, Duration: 30s; Sleep = 0.1
+
+![](images/2021-05-14-00-10-57.png)
+
