@@ -5,6 +5,8 @@
 - [GitHub](https://github.com/tonyjly)
 - [LinkedIn](https://www.linkedin.com/in/tonyjly/)
 
+[[_TOC_]]
+
 ### Project Links
 - [System Design Capstone Overview](https://learn-2.galvanize.com/cohorts/2596/blocks/101/content_files/System%20Design%20Capstone/introduction-to-system-design-capstone.md)
 - Phases
