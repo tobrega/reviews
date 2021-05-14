@@ -5,15 +5,14 @@
 - [GitHub](https://github.com/tonyjly)
 - [LinkedIn](https://www.linkedin.com/in/tonyjly/)
 
-- [System Design Capstone Engineering Journal](#system-design-capstone-engineering-journal)
-  - [Author: Tony Ly](#author-tony-ly)
-    - [Contacts:](#contacts)
-    - [Project Links](#project-links)
-    - [General Links](#general-links)
-    - [Referenced Links](#referenced-links)
-    - [Common Commands](#common-commands)
-    - [PostgreSQL Commands](#postgresql-commands)
-    - [Setup](#setup)
+
+## Table of Contents
+  - [Project Links](#project-links)
+  - [General Links](#general-links)
+  - [Referenced Links](#referenced-links)
+  - [Common Commands](#common-commands)
+  - [PostgreSQL Commands](#postgresql-commands)
+  - [Setup](#setup)
   - [5/3/2021  (W8D1, SDC Start)](#532021--w8d1-sdc-start)
       - [Database Data Modeling (1st iteration)](#database-data-modeling-1st-iteration)
   - [5/4/2021  (W8D2; May the 4th Be With You)](#542021--w8d2-may-the-4th-be-with-you)
