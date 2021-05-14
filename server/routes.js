@@ -15,8 +15,8 @@ const router = express.Router();
 
 // REVIEWS
 router.get('/', async (req, res) => {
-  const { product_id } = req.query;
-  console.log('productId', product_id)
+  const { product_id: productId } = req.query;
+  console.log('productId', productId)
   try {
     const query = `
       SELECT id,
@@ -44,15 +44,23 @@ router.get('/', async (req, res) => {
     `;
 
     // json_array_agg
-    const results = await db.query(query, [product_id]);
+    const results = await db.query(query, [productId]);
 
     // TODO: Use COALESCE to handle when photos array === null
     results.rows.map((row) => {
       if (row.photos === null) { row.photos = []; }
     })
 
-    console.log(results.rows);
-    res.status(200).send(results.rows)
+    // SHAPE RETURN DATA
+    const reviews = {
+      product: productId,
+      page: req.query.page || 0, // check default
+      count: req.query.count || 5, // check default
+      results: results.rows,
+    }
+
+    // console.log(reviews);
+    res.status(200).send(reviews)
   } catch (err) {
     console.error(err);
     throw err;
