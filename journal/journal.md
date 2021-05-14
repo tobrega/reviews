@@ -876,7 +876,6 @@ sudo systemctl restart postgresql
 
 ### Installing PostgreSQL on EC2
 - Add PostgreSQL Apt Repository & Install ([PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/))
--
 
 
 ### Local Stress Testing (k6)
