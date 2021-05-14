@@ -820,7 +820,8 @@ cd repo/
 npm install
 ```
 
-[Install PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/)
+Add PostgreSQL Apt Repository & Install ([PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/))
+
 ```
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 
@@ -868,15 +869,11 @@ nano /etc/postgresql/13/main/pg_hba.conf
 host    all             all             0.0.0.0/0            md5
 ```
 
-
+Open TCP Port & Restart PostgreSQL
 ```
 sudo ufw allow 5432/tcp
 sudo systemctl restart postgresql
 ```
-
-### Installing PostgreSQL on EC2
-- Add PostgreSQL Apt Repository & Install ([PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/))
-
 
 ### Local Stress Testing (k6)
 
