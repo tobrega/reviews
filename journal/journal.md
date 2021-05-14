@@ -55,6 +55,9 @@
     - [Query Writing](#query-writing)
 
 
+---
+
+
 ### Project Links
 - [System Design Capstone Overview](https://learn-2.galvanize.com/cohorts/2596/blocks/101/content_files/System%20Design%20Capstone/introduction-to-system-design-capstone.md)
 - Phases
