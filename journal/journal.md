@@ -1089,6 +1089,12 @@ First run of loader.io, test aborts due to exceeding error threshold
 1 client over 1 min, test aborts due to exceeding error threshold
 ![](images/2021-05-14-22-12-32.png)
 
+Interpretation of results
+- Response times are currently ~37 sec
+- This far exceeds the default timeout of 10
+- Gives appearance that all responses are failing, even when they do return eventually
+- Need to find a way to speed up query process so that response times are faster
+- Look into database indexing ([Database Index Fundamentals](https://youtu.be/xAQga907NVU))
 
 
 ### Database Indexing
@@ -1134,4 +1140,34 @@ VUs 1000, duration 30s, sleep 1; randomized endpoint; remove all console.logs (e
 
 
 ## 5/15/2021  (W9D6)
+
+### Using `screen` with Node.js
+- `screen` allows us to maintain our Node server running in the background, even after we disconnect from SSH ([linuxize](https://linuxize.com/post/how-to-use-linux-screen/))
+
+Start a screen session
+```
+screen
+```
+Name a screen session
+```
+screen -S session_name
+```
+
+| Common Commands    | Description                                        |
+|--------------------|----------------------------------------------------|
+| `Ctrl+a`, `c`      | Create a new window (with shell)                   |
+| `Ctrl+a`, `"`      | List all windows                                   |
+| `Ctrl+a`, `d`      | Detach from screen                                 |
+| `screen -r`        | Reattach to screen                                 |
+| `screen -ls`       | List active screens                                |
+
+
+| Other Commands     | Description                                        |
+|--------------------|----------------------------------------------------|
+| `Ctrl+a`, `A`      | Rename the current window                          |
+| `Ctrl+a`, `S`      | Split current region horizontally into two regions |
+| `Ctrl+a`, `\|`     | Split current region vertically into two regions   |
+| `Ctrl+a`, `Ctrl+a` | Toggle between the current and previous windows    |
+| `Ctrl+a`, `Q`      | Close all regions but the current one              |
+| `Ctrl+a`, `X`      | Close the current region                           |
 
