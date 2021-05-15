@@ -1089,13 +1089,6 @@ First run of loader.io, test aborts due to exceeding error threshold
 1 client over 1 min, test aborts due to exceeding error threshold
 ![](images/2021-05-14-22-12-32.png)
 
-After database indexing
-![](images/2021-05-15-00-48-18.png)
-
-![](images/2021-05-15-00-52-53.png)
-
-1500 RPS, 1 min, 1578 ms avg res, 0.8% error
-![](images/2021-05-15-00-58-43.png)
 
 
 ### Database Indexing
@@ -1108,8 +1101,7 @@ CREATE INDEX photos_id_index ON photos(id ASC);
 CREATE INDEX review_id_photos_index ON photos(review_id ASC);
 ```
 
-### k6 Testing
-- k6 testing after database indexing
+### k6 Testing (w/ db indexing)
 
 VUs 10, duration 30s, sleep 1.0
 ![](images/2021-05-15-00-20-31.png)
@@ -1128,4 +1120,18 @@ VUs 1000, duration 30s, sleep 1; randomized endpoint
 
 VUs 1000, duration 30s, sleep 1; randomized endpoint; remove all console.logs (except `morgan`)
 ![](images/2021-05-15-00-45-53.png)
+
+
+### loader.io Testing (w/ db indexing)
+
+250 RPS, 1 min, 63 avg res, 0.0% error
+![](images/2021-05-15-00-48-18.png)
+
+![](images/2021-05-15-00-52-53.png)
+
+1500 RPS, 1 min, 1578 ms avg res, 0.8% error
+![](images/2021-05-15-00-58-43.png)
+
+
+## 5/15/2021  (W9D6)
 
