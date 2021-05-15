@@ -8,23 +8,8 @@ const port = 3000;
 app.use(morgan('dev'));
 app.use(express.json());
 
-// EXTERNAL ENDPOINT
-// app.use('/', (req, res) => { res.status(200).send('Connect to endpoint at /reviews') })
-
-// REVIEWS ENDPOINT
-app.use('/reviews', router);
-
-// // GET reviews by product_id
-// app.get('/reviews/:productId', router);
-
-// // GET metadata
-// app.get('/reviews/meta/:product_id', router);
-
-// // POST review by product_id
-// app.post('/reviews/:product_id', router);
-
-// // PUT helpful
-// app.put('/reviews/:product_id', router);
+// PASS ALL TRAFFIC TO ROUTES
+app.use('/', router);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
