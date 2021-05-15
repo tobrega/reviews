@@ -1051,9 +1051,40 @@ First deployed run:  `http://54.153.7.81/reviews?product_id=20100`
 
 ![](images/2021-05-14-19-51-58.png)
 
+
+Query time from Postman
+
+![](images/2021-05-14-20-19-43.png)
+
 ### Rename Terminal Tab in pop_os!
 ```
 PS1='\u:\W$ '
 PROMPT_COMMAND='echo -en "\033]0;New terminal title\a"'
 ```
+
+### loader.io Setup
+
+- Account verification consists of
+  - Download a token text file
+  - Host it on the server so that it's publicly available
+  - loader.io reads token from file to verify ownership of the server
+
+Added a route to `routes.js` to verify the loader.io token
+```js
+const loaderioToken = 'TOKEN_STRING';
+router.get('/' + loaderioToken, (req, res) => {
+  res.status(200).send(loaderioToken);
+});
+```
+
+First run of loader.io, test aborts due to exceeding error threshold
+![](images/2021-05-14-21-49-30.png)
+
+![](images/2021-05-14-21-51-18.png)
+
+250 clients over 30 sec, test aborts due to exceeding error threshold
+![](images/2021-05-14-21-55-53.png)
+
+1 client over 1 min, test aborts due to exceeding error threshold
+![](images/2021-05-14-22-12-32.png)
 
