@@ -1064,6 +1064,7 @@ PROMPT_COMMAND='echo -en "\033]0;New terminal title\a"'
 
 ### loader.io Setup
 
+- [loader.io Test](https://loader.io/tests/9d668fbf1b01a536d86c94ffbb2f0473)
 - Account verification consists of
   - Download a token text file
   - Host it on the server so that it's publicly available
