@@ -67,6 +67,7 @@
   - [Phase 4: Deploy and Benchmark Initial Performance](https://learn-2.galvanize.com/cohorts/2596/blocks/101/content_files/System%20Design%20Capstone/phases/phase_4.md)
   - [Phase 5: Scale the Application](https://learn-2.galvanize.com/cohorts/2596/blocks/101/content_files/System%20Design%20Capstone/phases/phase_5.md)
   - [Phase 6: Presentations](https://learn-2.galvanize.com/cohorts/2596/blocks/101/content_files/System%20Design%20Capstone/phases/phase_6.md)
+- [Lecture Slides](https://learn-2.galvanize.com/cohorts/2596/blocks/101/content_files/System%20Design%20Capstone/lectures.md)
 - [Github](https://github.com/TOBREGA)
 - [Google Drive](https://drive.google.com/drive/folders/1jpWqFmw1oKkMOHSlKW58yRasG5LYd27_)
 - [Trello Template Board](https://trello.com/b/g3UQuSMv/tobrega-project)
@@ -1017,3 +1018,19 @@ VUs: 1000, Duration: 30s; Sleep = 0.1
 
 ## 5/14/2021  (W9D5)
 
+### PostgreSQL Command Line Prompts
+
+| Prompt     | Description                                         |
+|------------|-----------------------------------------------------|
+| postgres=# | fresh prompt waiting for the start of a new command |
+| postgres-# | continuation prompt; awaiting semicolon             |
+| postgres(# | open parentheses                                    |
+| postgres'# | open quoting                                        |
+| postgres"# | open quoting                                        |
+| postgres$# | TBD                                                 |
+
+### PostgreSQL: Prompting for password to superuser postgres
+- Postgres typically installs without assigning a password to the default user account `postgres`
+- When deploying Postgres on an AWS EC2 container, several colleagues have encountered the issue of getting prompted for a password when logging in as user `postgres`, without having set one up
+- Thus, they are unable to login, even when entering an empty password
+- The solution that Brenton found was to edit `pg_hba.conf` and change the local `METHOD` from `MD5` to `peer` ([PostgreSQL](https://www.postgresql.org/docs/9.1/auth-pg-hba-conf.html))
