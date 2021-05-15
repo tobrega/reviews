@@ -13,6 +13,11 @@ const router = express.Router();
 //   })
 // });
 
+// loader.io Token Verification
+const loaderioToken = 'loaderio-405000934a681d2c43b866c58537dd7e';
+router.get('/' + loaderioToken, (req, res) => {
+  res.status(200).send(loaderioToken);
+});
 
 // REVIEWS
 router.get('/reviews', async (req, res) => {
