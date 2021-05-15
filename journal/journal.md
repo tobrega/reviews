@@ -1034,3 +1034,26 @@ VUs: 1000, Duration: 30s; Sleep = 0.1
 - When deploying Postgres on an AWS EC2 container, several colleagues have encountered the issue of getting prompted for a password when logging in as user `postgres`, without having set one up
 - Thus, they are unable to login, even when entering an empty password
 - The solution that Brenton found was to edit `pg_hba.conf` and change the local `METHOD` from `MD5` to `peer` ([PostgreSQL](https://www.postgresql.org/docs/9.1/auth-pg-hba-conf.html))
+
+### Deploying Server on AWS
+
+- Creating a new EC2 instance for the first server took a few minutes. I anticipate that I will get faster at this as I become more familiar with the process.
+- Set security groups
+
+
+Since I am hosting the expressjs server on port 3000, but I will reroute all traffic received at port 80 to port 3000 instead
+```
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3000
+```
+
+
+First deployed run:  `http://54.153.7.81/reviews?product_id=20100`
+
+![](images/2021-05-14-19-51-58.png)
+
+### Rename Terminal Tab in pop_os!
+```
+PS1='\u:\W$ '
+PROMPT_COMMAND='echo -en "\033]0;New terminal title\a"'
+```
+
