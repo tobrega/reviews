@@ -22,7 +22,6 @@ router.get('/' + loaderioToken, (req, res) => {
 // REVIEWS
 router.get('/reviews', async (req, res) => {
   const { product_id: productId } = req.query;
-  console.log('productId', productId)
   try {
     const query = `
       SELECT id,
