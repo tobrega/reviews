@@ -7,6 +7,6 @@ export let options = {
 }
 
 export default function () {
-  http.get('http://localhost:3000/reviews/20100');
+  http.get('http://localhost:3000/reviews?product_id=20100');
   sleep(1);
 }
