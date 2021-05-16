@@ -113,14 +113,14 @@
 ### Common Commands
 
 Spin up PostgreSQL in a Docker container:
-```
+```bash
 sudo docker run --name postgresql-container -p 5432:5432 -e POSTGRES_PASSWORD=student -d postgres
 ```
 
 ### PostgreSQL Commands
 
 Login to PSQL Interactive Terminal (local)
-```
+```bash
 psql -d reviews -U tony -W
 
 OR
@@ -129,7 +129,7 @@ sudo -u postgres psql
 ```
 
 Login to PSQL Interactive Terminal (remote)
-```
+```bash
 psql -U tobrega -h localhost -d reviews
 ```
 
@@ -139,7 +139,7 @@ SELECT * FROM reviews;
 ```
 
 Clear the screen
-```
+```bash
 \! clear
 ```
 
@@ -241,12 +241,12 @@ Notes
 * running pgAdmin4 on a Docker container ([Dave Page](https://www.youtube.com/watch?v=RUeTKUf6JV0&ab_channel=EDB))
 
 Spinning up PostgreSQL on Docker
-```
+```bash
 sudo docker run --name postgresql-container -p 5432:5432 -e POSTGRES_PASSWORD=student -d postgres
 ```
 
 Spinning up pgAdmin4 on Docker
-```
+```bash
 sudo docker pull dpage/pgadmin4
 sudo docker run -p 80:80 \
    -e 'PGADMIN_DEFAULT_EMAIL=user@domain.com' \
@@ -261,7 +261,7 @@ LOAD DATA LOCAL INFILE '/Users/path/questions.csv' INTO TABLE questions FIELDS T
 
 Result when trying to run index.js to import csv (~2.0 GB) into postgres via node
 * Appears to be error out due to running out of memory
-```
+```bash
 tony@pop-os:~/Nextcloud/HR-SEA16/sdc/tobrega-reviews$ node db/index.js
 
 <--- Last few GCs --->
@@ -501,7 +501,7 @@ console.log(JSON.stringify(times, null, 2));
 - Reference: [The Ultimate Guide to PostgreSQL Date By Examples](https://www.postgresqltutorial.com/postgresql-date/#:~:text=Introduction%20to%20the%20PostgreSQL%20DATE%20data%20type&text=The%20lowest%20and%20highest%20values,%2C%202000%2D12%2D31.) (PostgreSQL Tutorial)
 
 #### Running `prepareReviews.js`:
-```
+```bash
 5700000 rows processed
 CSV file successfully processed in 112.221 seconds
 ```
@@ -509,7 +509,7 @@ CSV file successfully processed in 112.221 seconds
 
 ### Import schema
 
-```
+```sql
 reviews=# \i /home/tony/Nextcloud/HR-SEA16/sdc/tobrega-reviews/db/schema.sql
 DROP TABLE
 psql:/home/tony/Nextcloud/HR-SEA16/sdc/tobrega-reviews/db/schema.sql:3: NOTICE:  table "reviews" does not exist, skipping
@@ -548,7 +548,7 @@ reviews=#
 * The `psql` interactive terminal doesn't have a command to clear the screen
 * However, we can issue a shell command using `\! [SHELL_COMMAND_HERE]`
 * Source: [Today I Learned](https://til.hashrocket.com/posts/da9ade5291-clear-the-screen-in-psql)
-```
+```bash
 \! clear
 ```
 
@@ -809,28 +809,28 @@ Download `.pem` file, and launch instance
 ![](images/2021-05-12-23-51-11.png)
 
 Make the `.pem` file read-only
-  ```
+  ```bash
   chmod 400 sdc_reviews.pem
   ```
 
 SSH into the AWS EC2 t2.micro instance
-```
+```bash
 ssh -i sdc_reviews.pem ubuntu@AWS_SERVER_IP
 ```
 
 Update system
-```
+```bash
 sudo apt-get update && sudo apt-get upgrade -y
 ```
 
 Install Node.js v16
-```
+```bash
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
 ```
 
 Reroute all traffic received at `:80` to `:3000`
-```
+```bash
 sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3000
 ```
 
@@ -875,7 +875,7 @@ npm install
 
 Add PostgreSQL Apt Repository & Install ([PostgreSQL](https://www.postgresql.org/download/linux/ubuntu/))
 
-```
+```bash
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
 
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
@@ -886,14 +886,14 @@ sudo apt-get -y install postgresql
 ```
 
 Configure PostgreSQL
-```
+```bash
 sudo -u postgres psql
 
 sudo -u postgres createuser --interactive --pwprompt
 ```
 
 Prompts
-```
+```bash
 Enter name of role to add: user
 Enter password for new role:
 Enter it again:
@@ -903,19 +903,19 @@ Shall the new role be allowed to create more new roles? (y/n) y
 ```
 
 Create PostgreSQL database
-```
+```bash
 sudo -u postgres createdb -O user database
 ```
 
 Allow remote access
-```
+```bash
 nano /etc/postgresql/13/main/postgresql.conf
 
 listen_addresses = '*'  // uncomment and change to this
 ```
 
 Allow connections from
-```
+```bash
 nano /etc/postgresql/13/main/pg_hba.conf
 
 # IPv4 local connections:
@@ -923,7 +923,7 @@ host    all             all             0.0.0.0/0            md5
 ```
 
 Open TCP Port & Restart PostgreSQL
-```
+```bash
 sudo ufw allow 5432/tcp
 sudo systemctl restart postgresql
 ```
@@ -1042,7 +1042,7 @@ VUs: 1000, Duration: 30s; Sleep = 0.1
 
 
 Since I am hosting the expressjs server on port 3000, but I will reroute all traffic received at port 80 to port 3000 instead
-```
+```bash
 sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 3000
 ```
 
@@ -1057,7 +1057,7 @@ Query time from Postman
 ![](images/2021-05-14-20-19-43.png)
 
 ### Rename Terminal Tab in pop_os!
-```
+```bash
 PS1='\u:\W$ '
 PROMPT_COMMAND='echo -en "\033]0;New terminal title\a"'
 ```
@@ -1145,11 +1145,11 @@ VUs 1000, duration 30s, sleep 1; randomized endpoint; remove all console.logs (e
 - `screen` allows us to maintain our Node server running in the background, even after we disconnect from SSH ([linuxize](https://linuxize.com/post/how-to-use-linux-screen/))
 
 Start a screen session
-```
+```bash
 screen
 ```
 Name a screen session
-```
+```bash
 screen -S session_name
 ```
 
@@ -1170,4 +1170,87 @@ screen -S session_name
 | `Ctrl+a`, `Ctrl+a` | Toggle between the current and previous windows    |
 | `Ctrl+a`, `Q`      | Close all regions but the current one              |
 | `Ctrl+a`, `X`      | Close the current region                           |
+
+
+### Repsonse code:  304 Not Modified
+- > A 304 Not Modified message is an `HTTP response status code` indicating that the requested resource has not been modified since the previous transmission, so there is no need to retransmit the requested resource to the client
+- > In effect, a `304 Not Modified` response code acts as an implicit redirection to a cached version of the requested resource. ([Airbrake](https://airbrake.io/blog/http-errors/304-not-modified))
+
+```
+GET /reviews?product_id=20100 304 17.845 ms - -
+GET /reviews?product_id=20100 304 2.365 ms - -
+GET /reviews?product_id=20100 304 1.902 ms - -
+```
+
+### loader.io Testing (cont.)
+
+1500 RPS, 1 min, 2056 ms avg res, 8.9% error
+- error rate is still high (aiming for error < 1%)
+
+![](images/2021-05-15-14-27-05.png)
+
+
+1300 RPS, 1 min, 1817 ms avg res, 3.9% error
+- error rate is still high (aiming for error < 1%)
+
+![](images/2021-05-15-14-29-34.png)
+
+1200 RPS, 1 min, 207 ms avg res, 0.0% error
+- for this test, I increased the randomized range from 1-1,000,000 to 1-5760708 (the total rows in my entire `reviews` table)
+
+![](images/2021-05-15-14-39-58.png)
+
+
+1300 clients, 1 min, 855 ms avg res, 0.0% error
+- have room to increase RPS in error rate and RPS
+
+![](images/2021-05-15-14-44-13.png)
+
+
+Error rate is too high
+![](images/2021-05-15-14-46-28.png)
+
+Error rate is still too high
+![](images/2021-05-15-14-58-41.png)
+
+1400 RPS, 1 min, 1421 ms avg res, 0.1% error
+- 1400 RPS sustained over 1 minute is about how much we can handle given the time and error thresholds
+
+![](images/2021-05-15-15-00-28.png)
+
+### nginx Installation
+* [nginx installation](https://docs.nginx.com/nginx/deployment-guides/amazon-web-services/ec2-instances-for-nginx/)
+
+Edit review.conf
+```bash
+sudo vim /etc/nginx/conf.d/review.conf
+```
+
+Authenticate `loaderio` via load balancer nginx route (Jun)
+```bash
+location /loaderio-TOKEN {
+  return 200 'loaderio-TOKEN';
+}
+```
+
+### loader.io Testing (w/ load balancer)
+* `loaderio` testing at `http://13.52.254.233/reviews?product_id=%{*:1-5760708}`
+
+1500 RPS, 1 min, 173 ms avg res, 0.0% error
+![](images/2021-05-15-23-14-07.png)
+
+1800 RPS, 1 min, 1606 ms avg res, 27.2% error
+- response time is within threshold of 2000 ms
+- however, error rate exceeds 0.1% threshold
+
+![](images/2021-05-15-23-27-39.png)
+
+1700 RPS, 1 min, 595 ms avg res, 13.7% error
+![](images/2021-05-15-23-30-11.png)
+
+1600 RPS, 1 min, 431 ms avg res, 7.4% error
+![](images/2021-05-15-23-32-04.png)
+
+1500 RPS, 1 min, 189 ms avg res, 0.1% error
+![](images/2021-05-15-23-34-47.png)
 
