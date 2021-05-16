@@ -1294,3 +1294,13 @@ Currently server architecture consists of:
 2100 RPS, 1 min, 70 ms avg res, 0.0% error
 ![](images/2021-05-16-01-32-15.png)
 
+
+Scale to add a third server
+
+![](images/2021-05-16-01-56-46.png)
+
+Challenges (after adding server 3):
+- Running into some timeout issues
+- `server3` seems to be handling requests in a timely manner as it receives them
+- I will need to identify the bottleneck
+
