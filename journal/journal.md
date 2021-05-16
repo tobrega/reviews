@@ -1277,3 +1277,10 @@ Currently server architecture consists of:
 
 ![](images/2021-05-16-00-20-56.png)
 
+
+![](images/2021-05-16-01-20-47.png)
+
+
+![](images/2021-05-16-01-22-47.png)
+
+
