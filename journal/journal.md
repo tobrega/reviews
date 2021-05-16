@@ -1314,3 +1314,60 @@ Challenges (after adding server 3):
 - `server3` seems to be handling requests in a timely manner as it receives them
 - I will need to identify the bottleneck
 
+![](images/2021-05-16-02-27-00.png)
+
+![](images/2021-05-16-02-28-24.png)
+
+Notes
+- Currently monitoring `morgan` logging
+- The load balancer is only forwarding requests to Server 2 and Server 3
+- Server 1 is not receiving any HTTP requests at all
+- Upon troubleshooting, I discovered that Server 1 security group had changed and the necessary ports were not forwarding
+- Upon applying the same security groups to all three servers, they are all able to receive requests
+
+2400 RPS, 0.0% error
+![](images/2021-05-16-02-54-33.png)
+
+2600 RPS, 0.0% error
+- changed `morgan` middleware from `dev`-mode to `tiny`-mode
+
+![](images/2021-05-16-03-01-52.png)
+
+2700 RPS, 9.2% error
+- response time appears to spike in a pattern
+
+![](images/2021-05-16-03-04-25.png)
+
+
+Edit `/etc/nginx/conf.d/review.conf`
+```bash
+upstream reviews {
+  least_conn;
+  server 172.31.14.181;
+  server 172.31.11.228;
+  server 172.31.2.237;
+  keepalive 1024;
+}
+
+server {
+  # listen 80;
+  listen 80 backlog=4096;
+  server_name reviews;
+
+  location / {
+    # include proxy_params;
+    proxy_pass http://reviews;
+    # proxy_redirect off;
+
+    # Handle Web Socket connections
+    proxy_http_version 1.1;
+    # proxy_set_header Upgrade $http_upgrade;
+    proxy_set_header Connection "";
+  }
+}
+```
+
+Vim command to delete all lines
+```bash
+:1,$d
+```
