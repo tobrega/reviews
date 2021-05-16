@@ -842,6 +842,7 @@ Created a budget, with email alert if I exceed $0.01
 
 ---
 
+
 ## 5/13/2021  (W9D4)
 
 ### Stress Testing
@@ -1137,6 +1138,9 @@ VUs 1000, duration 30s, sleep 1; randomized endpoint; remove all console.logs (e
 
 1500 RPS, 1 min, 1578 ms avg res, 0.8% error
 ![](images/2021-05-15-00-58-43.png)
+
+
+---
 
 
 ## 5/15/2021  (W9D6)
