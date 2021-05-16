@@ -1230,16 +1230,22 @@ Error rate is still too high
 ### Authenticate `loaderio` via load balancer nginx route (Jun)
 
 Edit review.conf
-```bash
+```
 sudo vim /etc/nginx/conf.d/review.conf
 ```
 
-Add authentication token via route
 ```bash
+# Add authentication token via route
 location /loaderio-TOKEN {
   return 200 'loaderio-TOKEN';
 }
 ```
+
+Restart nginx
+```bash
+sudo nginx -s reload
+```
+
 
 ### loader.io Testing (w/ load balancer)
 * `loaderio` testing at `http://13.52.254.233/reviews?product_id=%{*:1-5760708}`
@@ -1261,4 +1267,14 @@ location /loaderio-TOKEN {
 
 1500 RPS, 1 min, 189 ms avg res, 0.1% error
 ![](images/2021-05-15-23-34-47.png)
+
+### Horizontal scaling of servers
+Currently server architecture consists of:
+1. database
+2. server1
+3. server2 (newly added)
+4. load balancer
+
+![](images/![](images/2021-05-16-00-20-56.png).png)
+
 
