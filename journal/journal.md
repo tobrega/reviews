@@ -1180,7 +1180,7 @@ screen -S session_name
 - > A 304 Not Modified message is an `HTTP response status code` indicating that the requested resource has not been modified since the previous transmission, so there is no need to retransmit the requested resource to the client
 - > In effect, a `304 Not Modified` response code acts as an implicit redirection to a cached version of the requested resource. ([Airbrake](https://airbrake.io/blog/http-errors/304-not-modified))
 
-```
+```bash
 GET /reviews?product_id=20100 304 17.845 ms - -
 GET /reviews?product_id=20100 304 2.365 ms - -
 GET /reviews?product_id=20100 304 1.902 ms - -
@@ -1225,12 +1225,16 @@ Error rate is still too high
 ### nginx Installation
 * [nginx installation](https://docs.nginx.com/nginx/deployment-guides/amazon-web-services/ec2-instances-for-nginx/)
 
+
+
+### Authenticate `loaderio` via load balancer nginx route (Jun)
+
 Edit review.conf
 ```bash
 sudo vim /etc/nginx/conf.d/review.conf
 ```
 
-Authenticate `loaderio` via load balancer nginx route (Jun)
+Add authentication token via route
 ```bash
 location /loaderio-TOKEN {
   return 200 'loaderio-TOKEN';
