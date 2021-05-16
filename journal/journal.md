@@ -1223,8 +1223,8 @@ Error rate is still too high
 ![](images/2021-05-15-15-00-28.png)
 
 ### nginx Installation
-* [nginx installation](https://docs.nginx.com/nginx/deployment-guides/amazon-web-services/ec2-instances-for-nginx/)
-
+- [Creating Amazon EC2 Instances for NGINX](https://docs.nginx.com/nginx/deployment-guides/amazon-web-services/ec2-instances-for-nginx/)
+- [Setting up an NGINX Demo Environment](https://docs.nginx.com/nginx/deployment-guides/setting-up-nginx-demo-environment/)
 
 
 ### Authenticate `loaderio` via load balancer nginx route (Jun)
