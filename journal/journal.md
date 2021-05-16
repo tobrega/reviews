@@ -1275,6 +1275,5 @@ Currently server architecture consists of:
 3. server2 (newly added)
 4. load balancer
 
-![](images/![](images/2021-05-16-00-20-56.png).png)
-
+![](images/2021-05-16-00-20-56.png)
 
