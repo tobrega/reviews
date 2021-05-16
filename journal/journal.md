@@ -1277,10 +1277,20 @@ Currently server architecture consists of:
 
 ![](images/2021-05-16-00-20-56.png)
 
-
+2800 RPS, 34.7% error
 ![](images/2021-05-16-01-20-47.png)
 
-
+2600 RPS, 30.1% error
 ![](images/2021-05-16-01-22-47.png)
 
+2300 RPS, 11.5% error
+![](images/2021-05-16-01-28-26.png)
+
+2000 RPS, 1 min, 74 ms avg res, 0.0% error
+- There is room to push it further
+
+![](images/2021-05-16-01-26-28.png)
+
+2100 RPS, 1 min, 70 ms avg res, 0.0% error
+![](images/2021-05-16-01-32-15.png)
 
