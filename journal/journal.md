@@ -1227,6 +1227,16 @@ Error rate is still too high
 - [Setting up an NGINX Demo Environment](https://docs.nginx.com/nginx/deployment-guides/setting-up-nginx-demo-environment/)
 
 
+### Load Balancing: Layer 4 vs. Layer 7
+
+|                    | Layer 4                                                             | Layer 7                                                                                                 |
+|--------------------|---------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| Layer of operation | intermediate *transport* layer                                      | high-level *application* layer                                                                          |
+| Content relation   | no regard to content of messages                                    | deals with actual content of each message                                                               |
+| Packet inspection  | no (only first few packets)                                         | yes                                                                                                     |
+| Benefits           | less CPU intensive; may save time forwarding packets w/o inspection | makes smarter load-balancing decisions; apply optimizations (compression, encryption); employ buffering |
+
+
 ### Authenticate `loaderio` via load balancer nginx route (Jun)
 
 Edit review.conf
