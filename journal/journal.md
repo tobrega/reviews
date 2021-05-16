@@ -1297,7 +1297,7 @@ Currently server architecture consists of:
 
 Scale to add a third server
 
-![](images/2021-05-16-01-56-46.png)
+![](images/2021-05-16-02-04-51.png)
 
 Challenges (after adding server 3):
 - Running into some timeout issues
