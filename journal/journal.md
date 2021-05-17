@@ -72,7 +72,7 @@
     - [loader.io Testing (w/ load balancer)](#loaderio-testing-w-load-balancer)
     - [Horizontal scaling of servers](#horizontal-scaling-of-servers)
     - [NGINX Configuration](#nginx-configuration)
-    - [Final Benchmark Metrics](#final-benchmark-metrics)
+  - [Final Benchmark Metrics](#final-benchmark-metrics)
 
 ---
 
@@ -1389,7 +1389,9 @@ Vim command to delete all lines
 :1,$d
 ```
 
-### Final Benchmark Metrics
+---
+
+## Final Benchmark Metrics
 
 2600 RPS, 1 min, 141 ms avg res, 0.0% error
 - changed `morgan` middleware from `dev`-mode to `tiny`-mode
