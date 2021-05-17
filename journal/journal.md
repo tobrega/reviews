@@ -1,6 +1,6 @@
 # System Design Capstone Engineering Journal
-## Author: Tony Ly
-### Contacts:
+### Author: Tony Ly
+## Contacts
 - [Website/Resume](http://tonyly.com/)
 - [GitHub](https://github.com/tonyjly)
 - [LinkedIn](https://www.linkedin.com/in/tonyjly/)
@@ -28,7 +28,7 @@
   - [5/8/2021  (W8D6)](#582021--w8d6)
   - [5/10/2021  (W9D1)](#5102021--w9d1)
     - [Changed how `prepareReviews.js` handles dates](#changed-how-preparereviewsjs-handles-dates)
-    - [Running `prepareReviews.js`:](#running-preparereviewsjs)
+      - [Running `prepareReviews.js`:](#running-preparereviewsjs)
     - [Import schema](#import-schema)
       - [Querying the database shows that our data imported successfully:](#querying-the-database-shows-that-our-data-imported-successfully)
       - [Querying entire `reviews` table:](#querying-entire-reviews-table)
@@ -38,7 +38,7 @@
     - [Handling quotes in source data](#handling-quotes-in-source-data)
     - [Server and DB routing](#server-and-db-routing)
     - [Issue: Query returns results in different order](#issue-query-returns-results-in-different-order)
-  - [5/11/2021 (W9D2)](#5112021--w9d2)
+  - [5/11/2021  (W9D2)](#5112021--w9d2)
     - [node-postgres: Client vs. Pool](#node-postgres-client-vs-pool)
     - [Lecture: Scaling Your Architecture (Elder)](#lecture-scaling-your-architecture-elder)
     - [Configuring Express Server & Postgres](#configuring-express-server--postgres)
@@ -47,13 +47,30 @@
     - [Server & Routes](#server--routes)
     - [Querying (cont.)](#querying-cont)
     - [AWS Deployment](#aws-deployment)
-  - [5/13/2021](#5132021)
+  - [5/13/2021  (W9D4)](#5132021--w9d4)
     - [Stress Testing](#stress-testing)
     - [Deployment](#deployment)
     - [Deploying Database on an EC2 Instance](#deploying-database-on-an-ec2-instance)
     - [Local Stress Testing (k6)](#local-stress-testing-k6)
     - [Query Writing](#query-writing)
-
+  - [5/14/2021  (W9D5)](#5142021--w9d5)
+    - [PostgreSQL Command Line Prompts](#postgresql-command-line-prompts)
+    - [PostgreSQL: Prompting for password to superuser postgres](#postgresql-prompting-for-password-to-superuser-postgres)
+    - [Deploying Server on AWS](#deploying-server-on-aws)
+    - [Rename Terminal Tab in pop_os!](#rename-terminal-tab-in-pop_os)
+    - [loader.io Setup](#loaderio-setup)
+    - [Database Indexing](#database-indexing)
+    - [k6 Testing (w/ db indexing)](#k6-testing-w-db-indexing)
+    - [loader.io Testing (w/ db indexing)](#loaderio-testing-w-db-indexing)
+  - [5/15/2021  (W9D6)](#5152021--w9d6)
+    - [Using `screen` with Node.js](#using-screen-with-nodejs)
+    - [Repsonse code:  304 Not Modified](#repsonse-code--304-not-modified)
+    - [loader.io Testing (cont.)](#loaderio-testing-cont)
+    - [nginx Installation](#nginx-installation)
+    - [Load Balancing: Layer 4 vs. Layer 7](#load-balancing-layer-4-vs-layer-7)
+    - [Authenticate `loaderio` via load balancer nginx route (Jun)](#authenticate-loaderio-via-load-balancer-nginx-route-jun)
+    - [loader.io Testing (w/ load balancer)](#loaderio-testing-w-load-balancer)
+    - [Horizontal scaling of servers](#horizontal-scaling-of-servers)
 
 ---
 
@@ -1028,7 +1045,6 @@ VUs: 1000, Duration: 30s; Sleep = 0.1
 | postgres(# | open parentheses                                    |
 | postgres'# | open quoting                                        |
 | postgres"# | open quoting                                        |
-| postgres$# | TBD                                                 |
 
 ### PostgreSQL: Prompting for password to superuser postgres
 - Postgres typically installs without assigning a password to the default user account `postgres`
