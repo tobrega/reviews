@@ -1073,7 +1073,7 @@ Query time from Postman
 
 ![](images/2021-05-14-20-19-43.png)
 
-### Rename Terminal Tab in pop_os!
+### Rename Terminal Tab in pop_os! (Jared)
 ```bash
 PS1='\u:\W$ '
 PROMPT_COMMAND='echo -en "\033]0;New terminal title\a"'
