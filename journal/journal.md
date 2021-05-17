@@ -71,6 +71,8 @@
     - [Authenticate `loaderio` via load balancer nginx route (Jun)](#authenticate-loaderio-via-load-balancer-nginx-route-jun)
     - [loader.io Testing (w/ load balancer)](#loaderio-testing-w-load-balancer)
     - [Horizontal scaling of servers](#horizontal-scaling-of-servers)
+    - [NGINX Configuration](#nginx-configuration)
+    - [Final Benchmark Metrics](#final-benchmark-metrics)
 
 ---
 
@@ -1352,7 +1354,7 @@ Notes
 ![](images/2021-05-16-03-04-25.png)
 
 
-### NGINX conf
+### NGINX Configuration
 
 Edit `/etc/nginx/conf.d/review.conf`
 ```bash
