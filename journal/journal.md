@@ -1352,12 +1352,7 @@ Notes
 ![](images/2021-05-16-03-04-25.png)
 
 
-2600 RPS, 1 min, 141 ms avg res, 0.0% error
-- changed `morgan` middleware from `dev`-mode to `tiny`-mode
-- the current server configuration achieves 2600 RPS sustained over 1 min with 0.0% error rate with an average response time of 141 ms
-
-![](images/2021-05-16-03-01-52.png)
-
+### NGINX conf
 
 Edit `/etc/nginx/conf.d/review.conf`
 ```bash
@@ -1391,3 +1386,11 @@ Vim command to delete all lines
 ```bash
 :1,$d
 ```
+
+### Final Benchmark Metrics
+
+2600 RPS, 1 min, 141 ms avg res, 0.0% error
+- changed `morgan` middleware from `dev`-mode to `tiny`-mode
+- the current server configuration achieves 2600 RPS sustained over 1 min with 0.0% error rate with an average response time of 141 ms
+
+![](images/2021-05-16-03-01-52.png)
